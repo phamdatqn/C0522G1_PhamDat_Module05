@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        a {
+            text-decoration: none;
+        }
+
+        #myBtn {
+            display: none;
+            position: fixed;
+            bottom: 25px;
+            right: 10px;
+            z-index: 300;
+            border: none;
+            outline: none;
+            background-color: green;
+            border: 2px solid #ccc;
+            color: white;
+            cursor: pointer;
+            border-radius: 30px;
+            opacity: 0.7;
+        }
+
+        #myBtn:hover {
+            background-color: #33CCFF;
+        }
+
+        .float-contact {
+            position: fixed;
+            bottom: 90px;
+            left: 22px;
+            z-index: 99999
+        }
+
+        .chat-zalo {
+            background: #2196f3;
+            text-decoration: none;
+            border-radius: 20px;
+            padding: 0 12px;
+            color: #fff;
+            display: block;
+            margin-bottom: 26px
+        }
+
+        .chat-zalo a {
+            font-size: 20px;
+            color: #fff;
+            font-weight: 400;
+            text-transform: none;
+            line-height: 0
+        }
+
+        @media (max-width: 549px) {
+            .float-contact {
+                bottom: 0;
+                left: 3px
+            }
+        }
+
+        .hotline-phone-ring-wrap {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            z-index: 999999;
+        }
+
+        .hotline-phone-ring {
+            position: relative;
+            visibility: visible;
+            background-color: transparent;
+            width: 200px;
+            height: 110px;
+            cursor: pointer;
+            z-index: 11;
+            -webkit-backface-visibility: hidden;
+            -webkit-transform: translateZ(0);
+            transition: visibility .5s;
+            left: 0;
+            bottom: 0;
+            display: block;
+        }
+
+        .hotline-phone-ring-circle {
+            width: 85px;
+            height: 85px;
+            top: 10px;
+            left: 10px;
+            position: absolute;
+            background-color: transparent;
+            border-radius: 100%;
+            border: 2px solid #e60808;
+            -webkit-animation: phonering-alo-circle-anim 1.2s infinite ease-in-out;
+            animation: phonering-alo-circle-anim 1.2s infinite ease-in-out;
+            transition: all .5s;
+            -webkit-transform-origin: 50% 50%;
+            -ms-transform-origin: 50% 50%;
+            transform-origin: 50% 50%;
+            opacity: 0.5;
+        }
+
+        .hotline-phone-ring-circle-fill {
+            width: 55px;
+            height: 55px;
+            top: 25px;
+            left: 25px;
+            position: absolute;
+            background-color: rgba(230, 8, 8, 0.7);
+            border-radius: 100%;
+            border: 2px solid transparent;
+            -webkit-animation: phonering-alo-circle-fill-anim 2.3s infinite ease-in-out;
+            animation: phonering-alo-circle-fill-anim 2.3s infinite ease-in-out;
+            transition: all .5s;
+            -webkit-transform-origin: 50% 50%;
+            -ms-transform-origin: 50% 50%;
+            transform-origin: 50% 50%;
+        }
+
+        .hotline-phone-ring-img-circle {
+            background-color: #e60808;
+            width: 33px;
+            height: 33px;
+            top: 37px;
+            left: 37px;
+            position: absolute;
+            background-size: 20px;
+            border-radius: 100%;
+            border: 2px solid transparent;
+            -webkit-animation: phonering-alo-circle-img-anim 1s infinite ease-in-out;
+            animation: phonering-alo-circle-img-anim 1s infinite ease-in-out;
+            -webkit-transform-origin: 50% 50%;
+            -ms-transform-origin: 50% 50%;
+            transform-origin: 50% 50%;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hotline-phone-ring-img-circle .pps-btn-img {
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+        }
+
+        .hotline-phone-ring-img-circle .pps-btn-img img {
+            width: 20px;
+            height: 20px;
+        }
+
+        .hotline-bar {
+            position: absolute;
+            background: rgba(230, 8, 8, 0.75);
+            height: 40px;
+            width: auto;
+            line-height: 40px;
+            border-radius: 3px;
+            padding: 0 10px;
+            background-size: 100%;
+            cursor: pointer;
+            transition: all 0.8s;
+            -webkit-transition: all 0.8s;
+            z-index: 9;
+            box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 50px !important;
+            /* width: 175px !important; */
+            left: 33px;
+            bottom: 37px;
+        }
+
+        .hotline-bar > a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: bold;
+            text-indent: 50px;
+            display: block;
+            letter-spacing: 1px;
+            line-height: 40px;
+            font-family: Arial;
+        }
+
+        .hotline-bar > a:hover,
+        .hotline-bar > a:active {
+            color: #fff;
+        }
+
+        @-webkit-keyframes phonering-alo-circle-anim {
+            0% {
+                -webkit-transform: rotate(0) scale(0.5) skew(1deg);
+                -webkit-opacity: 0.1;
+            }
+            30% {
+                -webkit-transform: rotate(0) scale(0.7) skew(1deg);
+                -webkit-opacity: 0.5;
+            }
+            100% {
+                -webkit-transform: rotate(0) scale(1) skew(1deg);
+                -webkit-opacity: 0.1;
+            }
+        }
+
+        @-webkit-keyframes phonering-alo-circle-fill-anim {
+            0% {
+                -webkit-transform: rotate(0) scale(0.7) skew(1deg);
+                opacity: 0.6;
+            }
+            50% {
+                -webkit-transform: rotate(0) scale(1) skew(1deg);
+                opacity: 0.6;
+            }
+            100% {
+                -webkit-transform: rotate(0) scale(0.7) skew(1deg);
+                opacity: 0.6;
+            }
+        }
+
+        @-webkit-keyframes phonering-alo-circle-img-anim {
+            0% {
+                -webkit-transform: rotate(0) scale(1) skew(1deg);
+            }
+            10% {
+                -webkit-transform: rotate(-25deg) scale(1) skew(1deg);
+            }
+            20% {
+                -webkit-transform: rotate(25deg) scale(1) skew(1deg);
+            }
+            30% {
+                -webkit-transform: rotate(-25deg) scale(1) skew(1deg);
+            }
+            40% {
+                -webkit-transform: rotate(25deg) scale(1) skew(1deg);
+            }
+            50% {
+                -webkit-transform: rotate(0) scale(1) skew(1deg);
+            }
+            100% {
+                -webkit-transform: rotate(0) scale(1) skew(1deg);
+            }
+        }
+
+        @media (max-width: 200px) {
+            .hotline-bar {
+                background: orange;
+                display: none;
+            }
+        }
+    </style>
+
+</head>
+<body>
+<div>
+    <footer class="img-fluid">
+        <div style="background: white;height: 40px"></div>
+        <hr>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-md-6">
+                    <div class="row">
+                        <span style="color: orange;font-size: 20px">Hướng Dẫn Di Chuyển</span><br>
+                        <p class="text-justify"> Khu nghỉ dưỡng Furama là cơ sở hàng đầu để khám phá một trong những
+                            điểm đến hấp dẫn nhất Châu Á. Chỉ cách Đà Nẵng một quãng lái xe ngắn là bốn Di sản Văn
+                            hóa
+                            Thế giới được UNESCO công nhận:</p>
+                        <hr>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-2">
+                            <a style="font-size: 15px;color: crimson" target="_blank"
+                               href="https://www.google.com/maps/dir//103+-+105+Vo+Nguyen+Giap+Street,+Khue+My+Ward,+Ngu+Hanh+Son+District,+Danang+City,/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x31420fdbc8cc38ef:0x9a6a3e31121225d2?sa=X&ved=2ahUKEwiKsaaap8b6AhWTc94KHUO2A_0Q9Rd6BAhVEAQ">
+                                <button class="btn btn-success btn-outline-secondary"
+                                        style="color: white;font-size: 10px;margin-top: 80px"><span
+                                        class=' bi-pin-map'></span> XEM BẢN ĐỒ
+                                </button>
+                            </a>
+                        </div>
+                        <div class="col-lg-10 img-fluid">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d30675.468158990207!2d108.1951328106234!3d16.04297803940453!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e0!4m5!1s0x3142191a4b753a03%3A0x917fac31af5cff3f!2zMjUgTmd1eeG7hW4gVGjDoWkgQsOsbmgsIEhvw6AgTWluaCwgTGnDqm4gQ2hp4buDdSwgxJDDoCBO4bq1bmcgNTUwMDAwLCBWaeG7h3QgTmFt!3m2!1d16.059498599999998!2d108.17427889999999!4m5!1s0x31420fdbc8cc38ef%3A0x9a6a3e31121225d2!2zRnVyYW1hIFJlc29ydCBEYW5hbmcsIDEwNSBWw7UgTmd1ecOqbiBHacOhcCwgU3RyZWV0LCBOZ8WpIEjDoG5oIFPGoW4sIMSQw6AgTuG6tW5nIDU1MDAwMCwgVmnhu4d0IE5hbQ!3m2!1d16.0399456!2d108.2510681!5e0!3m2!1svi!2sus!4v1665649097498!5m2!1svi!2sus"
+                                    width="480" height="230" style="border:0;" allowfullscreen="" loading="lazy"
+                                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xs-6 col-md-3">
+                    <ul class="footer-links">
+                        <li><a href="https://furamavietnam.com/vi/furama-resort-danang-rack-rate/" target="_blank">Giá
+                            công
+                            bố</a>
+                        </li>
+                        <hr>
+
+                        <li><a href="https://furamavietnam.com/vi/lifestyle-blog/" target="_blank">Lifestyle
+                            Blog</a></li>
+
+                        <hr>
+
+                        <li><a href="https://furamavietnam.com/vi/work-with-us/" target="_blank">Tuyển dụng</a></li>
+                        <hr>
+                        <li><a href="https://furamavietnam.com/vi/contact/" target="_blank">Liên hệ</a></li>
+                        <hr>
+                    </ul>
+                </div>
+
+                <div class="col-xs-6 col-md-3">
+                    <h6 style="color: crimson">Liên hệ</h6>
+                    <ul class="footer-links">
+                        <li><a
+                                href="https://www.google.com/maps/dir//103+-+105+Vo+Nguyen+Giap+Street,+Khue+My+Ward,
+                           +Ngu+Hanh+Son+District,+Danang+City,/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x31420fdbc8cc38ef:
+                           0x9a6a3e31121225d2?sa=X&ved=2ahUKEwiKsaaap8b6AhWTc94KHUO2A_0Q9Rd6BAhVEAQ">
+                            <span class='bi bi-pin-map'></span> <span>103 - 105 Vo Nguyen Giap Street, Khue My Ward,
+                        Ngu Hanh Son District, Danang City, Vietnam
+                        </span>
+                        </a></li>
+                        <hr>
+                        <li><a href="http://scanfcode.com/contact/">
+                            <span class='bi bi-telephone-forward'></span> 84-97111-8171/888 <span
+                                class='bi bi-printer'
+                                style="color: blue">Fax:</span>
+                            84-236-3847 666</a></li>
+                        <hr>
+                        <li><a href="mailto: phamdat.qn@gmail.com">
+                            <span class='bi bi-envelope'></span> phamdat.qn@gmail.com</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div>
+                    <p class="copyright-text" style="text-align: center">Copyright &copy; 2017 All Rights Reserved
+                        by
+                        <a href="https://www.facebook.com/phamdat.s2"
+                           style="color: blue;font-size: 20px; font-family: 'Brush Script MT', cursive;"
+                           target="_blank">Đạt
+                            Phạm</a>.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+</div>
+</body>
+<div class="float-contact">
+    <button class="chat-zalo">
+        <a href="https://zalo.me/0971118171" data-wpel-link="external" target="_blank"
+           rel="nofollow external noopener noreferrer">Chat Zalo</a>
+    </button>
+</div>
+<div class="row hotline-phone-ring-wrap">
+    <div class="hotline-phone-ring">
+        <div class="hotline-phone-ring-circle"></div>
+        <div class="hotline-phone-ring-circle-fill"></div>
+        <div class="hotline-phone-ring-img-circle">
+            <a href="tel:0971118171" class="pps-btn-img">
+                <img src="https://nguyenhung.net/wp-content/uploads/2019/05/icon-call-nh.png" alt="Gọi điện thoại"
+                     width="50">
+            </a>
+        </div>
+
+        <div class="hotline-bar">
+            <a href="tel:0971118171">
+                <span class="text-hotline">Đạt.097111.8171</span>
+            </a>
+        </div>
+    </div>
+
+
+    <div>
+        <button id="myBtn" title="Lên đầu trang" class="btn btn-secondary btn-outline-warning">
+            <span class='bi bi-arrow-up-circle' style="font-size: 30px"></span>
+        </button>
+        <script>
+            window.onscroll = function () {
+                scrollFunction()
+            };
+
+            function scrollFunction() {
+
+                if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+                    document.getElementById("myBtn").style.display = "block";
+                } else {
+                    document.getElementById("myBtn").style.display = "none";
+                }
+            }
+
+            document.getElementById('myBtn').addEventListener("click", function () {
+                document.body.scrollTop = 0;
+                document.documentElement.scrollTop = 0;
+            });
+        </script>
+    </div>
+</html>

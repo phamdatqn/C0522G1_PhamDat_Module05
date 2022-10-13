@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:charset="UTF-8">
+<head th:replace="/home :: head">
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="jquery.js"></script>
+    <script>
+        $(function () {
+            $("#header").load("../header.html");
+            $("#footer").load("../footer.html");
+        });
+    </script>
+</head>
+<body>
+
+<div class="container-fluid">
+    <div class="row" id="header"></div>
+    <form th:action="@{/facility/update}" th:object="${facilityDto}" method="post"
+          style="width: 50%;margin-left: 25%;margin-top: 3%">
+        <input type="hidden" th:field="*{id}">
+        <table class="table table-striped" border="1">
+            <tr>
+                <th colspan="2" style="color: darkmagenta;font-size: 30px;text-align: center">
+                    CẬP NHẬT DỊCH VỤ
+                </th>
+            </tr>
+            <tr>
+                <td>TÊN DỊCH VỤ:</td>
+                <td><input class="form-control" type="text" th:field="*{name}">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <span style="color: crimson" th:errors="*{name}"
+                          th:if="${#fields.hasErrors('name')}"></span>
+                </td>
+            </tr>
+
+            <tr>
+                <td>DIỆN TÍCH:</td>
+                <td><input class="form-control" type="text" th:field="*{area}">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <span style="color: crimson" th:errors="*{area}"
+                          th:if="${#fields.hasErrors('area')}"></span>
+                </td>
+            </tr>
+
+            <tr>
+                <td>PHÍ THUÊ:</td>
+                <td><input class="form-control" type="text" th:field="*{cost}">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <span style="color: crimson" th:errors="*{cost}"
+                          th:if="${#fields.hasErrors('cost')}"></span>
+                </td>
+            </tr>
+
+            <tr>
+                <td>SỐ NGƯỜI TỐI ĐA:</td>
+                <td><input class="form-control" type="text" th:field="*{maxPeople}">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <span style="color: crimson" th:errors="*{maxPeople}"
+                          th:if="${#fields.hasErrors('maxPeople')}"></span>
+                </td>
+            </tr>
+            <div th:if="${facilityDto.facilityType != 3}">
+                <tr>
+                    <td>TIÊU CHUẨN PHÒNG:</td>
+                    <td><input class="form-control" type="text" th:field="*{standardRoom}">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>TIỆN NGHI KHÁC:</td>
+                    <td><input class="form-control" type="text" th:field="*{descriptionOtherConvenience}">
+                    </td>
+                </tr>
+                <tr>
+                    <td>SỐ TẦNG:</td>
+                    <td>
+                        <input class="form-control" type="text" th:field="*{numberOfFloors}">
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                    <span style="color: crimson" th:errors="*{numberOfFloors}"
+                          th:if="${#fields.hasErrors('numberOfFloors')}"></span>
+                    </td>
+                </tr>
+            </div>
+            <tr>
+                <td>KIỂU THUÊ:"</td>
+                <td><select class="form-control" th:field="*{rentType}">-->
+                    <option th:each="rentType: ${rentTypeList}" th:text="${rentType.name}"
+                            th:value="${rentType.id}">
+                    </option>
+                </select>
+                </td>
+            </tr>
+            <tr th:if="${facilityDto.facilityType == 3}">
+                <td>
+                    <input class="form-control" placeholder="DỊCH VỤ MIỄN PHÍ:" readonly>
+                </td>
+                <td>
+                    <input class="form-control" type="text" th:field="*{facilityFree}">
+                </td>
+            </tr>
+
+            <tr th:if="${facilityDto.facilityType == 1}">
+                <td>
+                    <input class="form-control" placeholder="DIỆN TÍCH HỒ BƠI:" readonly>
+                </td>
+                <td><input class="form-control" type="text" th:field="*{poolArea}">
+                </td>
+            </tr>
+
+            <tr >
+                <td>
+                    <input class="form-control" placeholder="LOẠI DỊCH VỤ:" readonly>
+                </td>
+                <td>
+                    <input th:field="*{facilityType}">
+
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <button class="btn btn-primary" type="submit" value="Update">Cập nhật</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+    <div class="row" id="footer"></div>
+</div>
+</body>
+</html>
