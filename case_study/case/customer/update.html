@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:charset="UTF-8">
+<head th:replace="/home :: head">
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="jquery.js"></script>
+    <script>
+        $(function () {
+            $("#header").load("../header.html");
+            $("#footer").load("../footer.html");
+        });
+    </script>
+</head>
+<body>
+
+<div class="container-fluid">
+    <div class="row" id="header"></div>
+
+    <form th:object="${customerDto}" th:action="@{/customer/update}" method="post"
+          style="margin-left:30%;width: 40%;margin-top: 3%">
+        <input hidden th:field="*{id}">
+        <table class="table table-striped" border="1">
+            <tr>
+                <th colspan="2" style="color: darkmagenta;font-size: 40px;text-align: center;font-family: Papyrus,fantasy">
+                    CẬP NHẬT KHÁCH HÀNG
+                </th>
+            </tr>
+            <tr>
+                <td>TÊN KHÁCH HÀNG:</td>
+                <td><input class="form-control" type="text" th:field="*{name}"></td>
+            </tr>
+            <tr>
+                <td colspan="2"><div style="color: crimson" th:errors="*{name}"
+                                     th:if="${#fields.hasErrors('name')}"></div>
+                </td>
+            </tr>
+            <tr>
+                <td>GIỚI TÍNH:</td>
+                <td>
+                    <input type="radio" value="true" name="gender" checked>Name
+                    <input type="radio" value="false" name="gender" >Nữ
+                </td>
+            </tr>
+            <tr>
+                <td>NGÀY SINH:</td>
+                <td><input class="form-control" type="date" th:field="*{dateOfBirth}"></td>
+            </tr>
+            <tr>
+                <td colspan="2"><div style="color: crimson" th:errors="*{dateOfBirth}"
+                                     th:if="${#fields.hasErrors('dateOfBirth')}"></div>
+                </td>
+            </tr>
+
+            <tr>
+                <td>SỐ CMND:</td>
+                <td><input class="form-control" type="text" th:field="*{idCard}"></td>
+            </tr>
+            <tr>
+                <td colspan="2"><div style="color: crimson" th:errors="*{idCard}"
+                                     th:if="${#fields.hasErrors('idCard')}"></div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2"><span style="color: crimson" th:text="${duplicateIdCard}"
+                                      th:if="${duplicateIdCard}"></span>
+                </td>
+            </tr>
+
+            <tr>
+                <td>SỐ ĐIỆN THOẠI:</td>
+                <td><input class="form-control" type="text" th:field="*{phoneNumber}"></td>
+            </tr>
+            <tr>
+                <td colspan="2"><div style="color: crimson" th:errors="*{phoneNumber}"
+                                     th:if="${#fields.hasErrors('phoneNumber')}"></div>
+                </td>
+            </tr>
+
+            <tr>
+                <td>EMAIL:</td>
+                <td><input class="form-control" type="text" th:field="*{email}"></td>
+            </tr>
+            <tr>
+                <td colspan="2"><div style="color: crimson" th:errors="*{email}"
+                                     th:if="${#fields.hasErrors('email')}"></div>
+                </td>
+            </tr>
+
+            <tr>
+                <td>ĐỊA CHỈ:</td>
+                <td><input class="form-control" type="text" th:field="*{address}"></td>
+            </tr>
+            <tr>
+                <td colspan="2"><div style="color: crimson" th:errors="*{address}"
+                                     th:if="${#fields.hasErrors('address')}"></div>
+                </td>
+            </tr>
+
+            <tr>
+                <td>LOẠI KHÁCH HÀNG:</td>
+                <td>
+                    <select th:field="*{customerType}">
+                        <option class="form-control" th:each="customerType : ${customerTypeList}"
+                                th:value="${customerType.id}"
+                                th:text="${customerType.name}"></option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <button class="btn btn-primary" type="submit">Cập nhật</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+
+    <div class="row" id="footer"></div>
+</div>
+</body>
+</html>
