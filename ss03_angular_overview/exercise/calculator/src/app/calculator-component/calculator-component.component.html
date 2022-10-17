@@ -1,0 +1,25 @@
+<table>
+  <tr>
+    <td>Number1:</td>
+    <td>
+      <input type="number" id="number1" [(ngModel)]="number1">
+    </td>
+  </tr>
+  <tr>
+    <td>Number2:</td>
+    <td>
+      <input type="number" id="number2" [(ngModel)]="number2">
+    </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+      <button (click)="addition()">+</button>
+      <button (click)="subtraction()">-</button>
+      <button (click)="multiplication()">*</button>
+      <button (click)="division()">/</button>
+    </td>
+  </tr>
+</table>
+
+<p>Kết quả: </p> <span> {{result}}</span>
