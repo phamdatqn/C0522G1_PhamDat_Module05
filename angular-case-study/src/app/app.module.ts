@@ -6,6 +6,8 @@ import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import { FacilityComponent } from './facility/facility.component';
+import { UpdateFacilityComponent } from './facility-update/update-facility.component';
+import { CreateFacilityComponent } from './facility-create/create-facility.component';
 
 
 @NgModule({
@@ -15,6 +17,8 @@ import { FacilityComponent } from './facility/facility.component';
     HeaderComponent,
     HomeComponent,
     FacilityComponent,
+    UpdateFacilityComponent,
+    CreateFacilityComponent,
   ],
   imports: [
     BrowserModule
