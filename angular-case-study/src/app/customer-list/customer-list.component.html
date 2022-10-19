@@ -1,0 +1,104 @@
+<div class="container-fluid">
+  <div class="row">
+    <h1 style="color: crimson;text-align: center;font-size: 40px;margin-top: 20px;font-family: Papyrus,fantasy">
+      <strong>QUẢN LÝ KHÁCH HÀNG</strong></h1>
+  </div>
+  <div class="row" style="margin-top: 10px">
+    <div class="col-lg-4"></div>
+    <div class="col-lg-4">
+      <form class="d-flex align-items-center m-0 ">
+        <input class="form-control me-2" type="search" placeholder="Input Customer :" aria-label="Search"
+               name="search">
+        <button class="btn btn-outline-success chu_menu" type="submit" style="color: black">Search</button>
+      </form>
+    </div>
+    <div class="col-lg-4"></div>
+  </div>
+  <br>
+
+  <div>
+    <table class="table table-striped" style="margin-top: 10px">
+      <tr>
+        <th>STT</th>
+        <th>Tên khách hàng</th>
+        <th>Ngày sinh</th>
+        <th>Số điện thoại</th>
+        <th>Địa chỉ</th>
+        <th>Cập nhật</th>
+        <th>Xóa</th>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>Phạm Đạt</td>
+        <td>2020-12-12</td>
+        <td>097111111</td>
+        <td>Đà Nẵng</td>
+        <td>
+          <a href="customer/update/__${customer.id}__}">
+            <button class="btn btn-secondary btn-outline-warning" style="color: white"><span
+              class=" bi-pencil-square"></span>
+            </button>
+          </a>
+        </td>
+        <td>
+          <button
+            class="btn btn-danger btn-outline-secondary" data-bs-toggle="modal"
+            data-bs-target="#deleteCustomer">
+            <span style="color: white" class='bi bi-trash'></span>
+          </button>
+        </td>
+      </tr>
+
+      <tr>
+        <td>1</td>
+        <td>Đạt Phạm</td>
+        <td>2020-11-11</td>
+        <td>09722222</td>
+        <td>Đà Nẵng</td>
+        <td>
+          <a href="customer/update/__${customer.id}__}">
+            <button class="btn btn-secondary btn-outline-warning" style="color: white"><span
+              class=" bi-pencil-square"></span>
+            </button>
+          </a>
+        </td>
+        <td>
+          <button
+            class="btn btn-danger btn-outline-secondary" data-bs-toggle="modal"
+            data-bs-target="#deleteCustomer">
+            <span style="color: white" class='bi bi-trash'></span>
+          </button>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+<!-- Delete modal -->
+<div class="modal fade" id="deleteCustomer" tabindex="-1" aria-labelledby="exampleModalLabel1"
+     aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="exampleModalLabel1">Bạn có chắc chắn muốn xóa khách hàng?</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      <form>
+        <div class="modal-body">
+          <span class="h6">Khách hàng:</span>
+          <strong id="nameDelete" class="text-danger ps-2"></strong>
+          <input type="hidden" name="id" id="idDelete" readonly/>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+          <button type="submit" class="btn btn-danger" value="delete">Xóa</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+
+
