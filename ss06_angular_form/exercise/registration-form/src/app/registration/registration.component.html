@@ -1,0 +1,86 @@
+<div class="container" [formGroup]="registrationFormGroup" style="width: 40%">
+  <div class="form-group">
+    <label>Email</label>
+    <input type="email" class="form-control" formControlName="email" id="email" aria-describedby="emailHelp"
+           placeholder="Enter email">
+  </div>
+  <div class="form-group text-danger"
+       *ngIf="registrationFormGroup.controls.email.hasError('required')
+          && registrationFormGroup.controls.email.touched">
+    Email không được để trống!
+  </div>
+  <div class="form-group text-danger"
+       *ngIf="registrationFormGroup.controls.email.hasError('email')
+          && registrationFormGroup.controls.email.dirty">
+    Sai định dạng Email!
+  </div>
+
+  <div class="form-group" formGroupName="passwordGroup">
+    <label>Password</label>
+    <input type="password" formControlName="password" class="form-control" id="password" placeholder="Password">
+    <div *ngIf="registrationFormGroup.get('passwordGroup').hasError('minlength', 'password') &&
+      registrationFormGroup.get('passwordGroup').get('password').dirty" class="form-text text-danger">Độ dài pass phải >
+      5
+    </div>
+
+    <label>Confirm Password</label>
+    <input type="password" formControlName="confirmPassword" class="form-control" id="confirmPassword"
+           placeholder="Confirm Password">
+  </div>
+  <div *ngIf="registrationFormGroup.get('passwordGroup').hasError('minlength', 'confirmPassword') &&
+      registrationFormGroup.get('passwordGroup').get('confirmPassword').dirty" class="form-text text-danger">Độ dài pass
+    phải > 5
+  </div>
+
+  <div *ngIf="registrationFormGroup.controls.passwordGroup.hasError('passwordNotMatch') &&
+registrationFormGroup.controls.passwordGroup.touched" class="form-text text-danger">Mật Khẩu không khớp!
+  </div>
+
+  <div class="form-group">
+    <label>Thành phố: </label>
+    <select>
+      <option>Đà Nẵng</option>
+      <option>Hồ Chí Minh</option>
+      <option>Hà Nội</option>
+      <option>Quảng Ngãi</option>
+      <option>Quảng Nam</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label>Tuổi: </label>
+    <input type="date" class="form-control" id="age" formControlName="age">
+  </div>
+  <div class="form-group text-danger"
+       *ngIf="registrationFormGroup.controls.age.hasError('invalid18')
+          && registrationFormGroup.controls.age.dirty">
+    Tuổi phải lớn hơn 18 !
+  </div>
+
+  <div class="form-group">
+    <label>Giới tính: </label>
+    <input type="radio" value="1" formControlName="gender">Nam
+    <input type="radio" value="0" formControlName="gender">Nữ
+  </div>
+
+  <div class="form-group">
+    <label>Số điện thoại</label>
+    <input type="text" formControlName="phone" class="form-control" id="phone">
+  </div>
+  <div class="form-group text-danger"
+       *ngIf="registrationFormGroup.controls.phone.hasError('required')
+          && registrationFormGroup.controls.phone.touched">
+    Vui lòng nhập số điện thoại!
+  </div>
+  <div class="form-group text-danger"
+       *ngIf="registrationFormGroup.controls.phone.hasError('pattern')
+          && registrationFormGroup.controls.phone.dirty">
+    Số điện thoại phải có định dạng +84 + 9-10 số !
+  </div>
+
+  <button class="btn btn-info" (click)="giveFormValue()"
+          [disabled]="registrationFormGroup.invalid">Đăng ký
+  </button>
+</div>
+
+
