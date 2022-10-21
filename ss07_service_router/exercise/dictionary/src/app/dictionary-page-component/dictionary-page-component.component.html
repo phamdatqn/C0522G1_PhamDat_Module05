@@ -1,0 +1,14 @@
+<table>
+  <tr>
+    <th>Từ vựng:</th>
+    <th>Ý nghĩa:</th>
+  </tr>
+  <tr *ngFor="let dictionary of dictionaryList">
+    <td>{{dictionary.word}}</td>
+    <a routerLink="/detail/{{dictionary.word}}">
+      <td>Xem</td>
+    </a>
+  </tr>
+</table>
+
+<router-outlet></router-outlet>
