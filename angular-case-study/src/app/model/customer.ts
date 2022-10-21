@@ -9,9 +9,8 @@ export class Customer {
   address: string;
   customerType: string;
 
-
-  // tslint:disable-next-line:max-line-length
-  constructor(id: number, name: string, birthDay: string, gender: number, idCard: string, phone: string, email: string, address: string, customerType: string) {
+  constructor(id: number, name: string, birthDay: string, gender: number,
+              idCard: string, phone: string, email: string, address: string, customerType: string) {
     this.id = id;
     this.name = name;
     this.birthDay = birthDay;
