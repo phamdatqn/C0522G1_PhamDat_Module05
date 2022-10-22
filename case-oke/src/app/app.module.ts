@@ -15,6 +15,7 @@ import { ContractCreateComponent } from './contract-create/contract-create.compo
 import { ContractListComponent } from './contract-list/contract-list.component';
 import {RouterModule} from '@angular/router';
 import {FormsModule} from '@angular/forms';
+import {AppRoutingModule} from './app-routing.module';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import {FormsModule} from '@angular/forms';
   imports: [
     BrowserModule,
     RouterModule,
-    FormsModule
+    FormsModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

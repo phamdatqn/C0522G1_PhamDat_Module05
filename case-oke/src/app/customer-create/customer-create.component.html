@@ -1,0 +1,84 @@
+<div class="container-fluid">
+
+
+  <form method="post"
+        style="margin-left:30%;width: 40%;margin-top: 3%">
+    <table class="table table-striped" border="1">
+      <tr>
+        <th colspan="2" style="color: darkmagenta;font-size: 35px;text-align: center;font-family: Papyrus,fantasy">
+          THÊM MỚI KHÁCH HÀNG
+        </th>
+      </tr>
+      <tr>
+        <td>
+          Tên khách hàng:
+        </td>
+        <td><input class="form-control"></td>
+      </tr>
+
+      <tr>
+        <td>
+          Giới tính:
+        </td>
+        <td>
+          <label><input type="radio" value="true" name="gender" checked>Nam<span class='bi bi-gender-male'
+                                                                                 style="color: darkmagenta">&ensp; &ensp; &ensp; </span></label>
+          <label> <input type="radio" value="false" name="gender">Nữ<span class='bi bi-gender-female'
+                                                                          style="color: darkmagenta"></span></label>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Ngày sinh:
+        </td>
+        <td><input type="date" id="dateOfBirth" class="form-control"/>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          Số CMND:
+        </td>
+        <td><input class="form-control" name="idCard"></td>
+      </tr>
+
+      <tr>
+        <td>
+          Số điện thoại:
+        </td>
+        <td><input class="form-control" name="phoneNumber"></td>
+      </tr>
+
+      <tr>
+        <td>
+          Email:
+        </td>
+        <td><input class="form-control" name="email"></td>
+      </tr>
+
+      <tr>
+        <td>
+          Địa chỉ:
+        </td>
+        <td><input class="form-control" name="address"></td>
+      </tr>
+
+      <tr>
+        <td class="img-fluid">
+          Loại khách hàng:
+        </td>
+        <td>
+          <select class="form-select">
+            <option class="form-control"></option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>
+          <button class="btn btn-primary" type="submit" value="Create">Thêm mới</button>
+        </td>
+      </tr>
+    </table>
+  </form>
+</div>

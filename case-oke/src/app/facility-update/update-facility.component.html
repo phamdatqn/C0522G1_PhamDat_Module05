@@ -1,0 +1,98 @@
+<div class="container-fluid">
+
+  <form  method="post"
+        style="width: 50%;margin-left: 25%;margin-top: 3%">
+    <input type="hidden">
+    <table class="table table-striped" border="1">
+      <tr>
+        <th colspan="2" style="color: darkmagenta;font-size: 30px;text-align: center">
+          CẬP NHẬT DỊCH VỤ
+        </th>
+      </tr>
+      <tr>
+        <td>TÊN DỊCH VỤ:</td>
+        <td><input class="form-control" type="text" >
+        </td>
+      </tr>
+
+      <tr>
+        <td>DIỆN TÍCH:</td>
+        <td><input class="form-control" type="text">
+        </td>
+      </tr>
+
+      <tr>
+        <td>PHÍ THUÊ:</td>
+        <td><input class="form-control" type="text" t>
+        </td>
+      </tr>
+
+      <tr>
+        <td>SỐ NGƯỜI TỐI ĐA:</td>
+        <td><input class="form-control" type="text">
+        </td>
+      </tr>
+
+      <div th:if="${facilityDto.facilityType != 3}">
+        <tr>
+          <td>TIÊU CHUẨN PHÒNG:</td>
+          <td><input class="form-control" type="text" >
+          </td>
+        </tr>
+
+        <tr>
+          <td>TIỆN NGHI KHÁC:</td>
+          <td><input class="form-control" type="text" >
+          </td>
+        </tr>
+        <tr>
+          <td>SỐ TẦNG:</td>
+          <td>
+            <input class="form-control" type="text" >
+          </td>
+        </tr>
+
+      </div>
+      <tr>
+        <td>KIỂU THUÊ:"</td>
+        <td><select class="form-control" >
+          <option >
+          </option>
+        </select>
+        </td>
+      </tr>
+      <tr >
+        <td>
+          <input class="form-control" placeholder="DỊCH VỤ MIỄN PHÍ:" readonly>
+        </td>
+        <td>
+          <input class="form-control" type="text">
+        </td>
+      </tr>
+
+      <tr >
+        <td>
+          <input class="form-control" placeholder="DIỆN TÍCH HỒ BƠI:" readonly>
+        </td>
+        <td><input class="form-control" type="text">
+        </td>
+      </tr>
+
+      <tr hidden>
+        <td>
+          <input class="form-control" placeholder="LOẠI DỊCH VỤ:" readonly>
+        </td>
+        <td>
+          <input >
+
+        </td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>
+          <button class="btn btn-primary" type="submit" value="Update">Cập nhật</button>
+        </td>
+      </tr>
+    </table>
+  </form>
+</div>

@@ -206,13 +206,11 @@
         display: none;
       }
     }
-
-
   </style>
 
 </head>
 <body>
-  <app-root></app-root>
+<app-root></app-root>
 </body>
 
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
@@ -254,6 +252,7 @@
     <span class='bi bi-arrow-up-circle' style="font-size: 30px"></span>
   </button>
 </div>
+
 <script>
   window.onscroll = function () {
     scrollFunction()
@@ -274,9 +273,21 @@
   });
 </script>
 
+<script src="https://code.jquery.com/jquery-3.6.1.js"
+        integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+<script src="//cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+
 <script>
   $(document).ready(function () {
     $('#tableFacility').dataTable({
+      "dom": 'lrtip',
+      "lengthChange": false,
+      "pageLength": 3
+    });
+  });
+
+  $(document).ready(function () {
+    $('#tableCustomer').dataTable({
       "dom": 'lrtip',
       "lengthChange": false,
       "pageLength": 3
@@ -288,9 +299,8 @@
     document.getElementById("nameDelete").innerText = name;
   }
 </script>
-<script src="https://code.jquery.com/jquery-3.6.1.js"
-        integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
-<script src="//cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+
+
 <!--<script>-->
 <!--  $(document).ready(function () {-->
 <!--    $('#tableFacility').dataTable({-->
