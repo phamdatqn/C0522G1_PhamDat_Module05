@@ -17,16 +17,17 @@ export class CustomerUpdateComponent implements OnInit {
     const id = Number(this.activatedRoute.snapshot.params.id);
     this.customer = this.customerService.findById(id);
     this.updateCustomerFormGroup = new FormGroup({
-      // name: new FormControl('', Validators.required),
-      name: new FormControl('', [Validators.required,
-        Validators.pattern('^([\\p{Lu}][\\p{Ll}]{1,8})(\\s([\\p{Lu}]|[\\p{Lu}][\\p{Ll}]{1,10})){0,5}$')]),
+      name: new FormControl('', Validators.required),
+      // name: new FormControl('', [Validators.required,
+      //   Validators.pattern('^([\\p{Lu}][\\p{Ll}]{1,8})(\\s([\\p{Lu}]|[\\p{Lu}][\\p{Ll}]{1,10})){0,5}$')]),
       dateOfBirth: new FormControl('', this.checkAge),
       gender: new FormControl('', Validators.required),
       idCard: new FormControl('', [Validators.required]),
       phoneNumber: new FormControl('', Validators.required),
       email: new FormControl('', [Validators.required, Validators.email]),
-      address: new FormControl('', [Validators.required, Validators.pattern(
-        '^([\\\\p{Lu}][\\\\p{Ll}]{1,8})(\\\\s([\\\\p{Lu}]|[\\\\p{Lu}][\\\\p{Ll}]{1,10})){0,5}$')]),
+      address: new FormControl('', Validators.required),
+      // address: new FormControl('', [Validators.required, Validators.pattern(
+      //   '^([\\\\p{Lu}][\\\\p{Ll}]{1,8})(\\\\s([\\\\p{Lu}]|[\\\\p{Lu}][\\\\p{Ll}]{1,10})){0,5}$')]),
       customerType: new FormControl('')
     });
     this.updateCustomerFormGroup.patchValue(this.customer);

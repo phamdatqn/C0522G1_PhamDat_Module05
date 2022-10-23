@@ -25,16 +25,16 @@
             </div>
           </td>
         </tr>
-        <tr>
-          <td></td>
-          <td>
-            <div class="form-group text-danger"
-                 *ngIf="updateCustomerFormGroup.controls.name.hasError('pattern')
-          && updateCustomerFormGroup.controls.name.dirty">
-              Sai định dạng tên!
-            </div>
-          </td>
-        </tr>
+<!--        <tr>-->
+<!--          <td></td>-->
+<!--          <td>-->
+<!--            <div class="form-group text-danger"-->
+<!--                 *ngIf="updateCustomerFormGroup.controls.name.hasError('pattern')-->
+<!--          && updateCustomerFormGroup.controls.name.dirty">-->
+<!--              Sai định dạng tên!-->
+<!--            </div>-->
+<!--          </td>-->
+<!--        </tr>-->
 
         <tr>
           <td>Giới tính:</td>
@@ -177,7 +177,7 @@
           <td>
             <button class="btn btn-primary btn-outline-primary " type="submit" value="Create"
                     (click)="giveFormValue()"
-                    [disabled]="updateCustomerFormGroup.invalid">Thêm mới
+                    [disabled]="updateCustomerFormGroup.invalid">Cập nhật
             </button>
           </td>
         </tr>
