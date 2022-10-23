@@ -7,6 +7,7 @@ import {CustomerCreateComponent} from './customer-create/customer-create.compone
 import {CustomerUpdateComponent} from './customer-update/customer-update.component';
 import {CreateFacilityComponent} from './facility-create/create-facility.component';
 import {UpdateFacilityComponent} from './facility-update/update-facility.component';
+import {ContractListComponent} from './contract-list/contract-list.component';
 
 
 const routes: Routes = [
@@ -20,7 +21,7 @@ const routes: Routes = [
     path: 'customer/create', component: CustomerCreateComponent
   },
   {
-    path: 'customer/update', component: CustomerUpdateComponent
+    path: 'customer/update/:id', component: CustomerUpdateComponent
   },
   {
     path: 'facility/list', component: FacilityComponent
@@ -29,7 +30,10 @@ const routes: Routes = [
     path: 'facility/create', component: CreateFacilityComponent
   },
   {
-    path: 'facility/update', component: UpdateFacilityComponent
+    path: 'facility/update/:id', component: UpdateFacilityComponent
+  },
+  {
+    path: 'contract/list', component: ContractListComponent
   },
 ];
 

@@ -1,64 +1,187 @@
-<form method="post"
-      style="margin-left:30%;width: 40%;margin-top: 3%">
-  <input id="id">
-  <table class="table table-striped" border="1">
-    <tr>
-      <th colspan="2" style="color: darkmagenta;font-size: 40px;text-align: center;font-family: Papyrus,fantasy">
-        CẬP NHẬT KHÁCH HÀNG
-      </th>
-    </tr>
-    <tr>
-      <td>TÊN KHÁCH HÀNG:</td>
-      <td><input class="form-control" type="text" ></td>
-    </tr>
+<div class="container">
+  <div class="row">
+    <img src="..\assets\ngan_row.jpg" style="width: 10%;margin-left: 44.5%">
+  </div>
+  <div class="row">
+    <form method="post" style="margin-left:30%;width: 40%">
+      <table class="table table-striped" border="1" [formGroup]="updateCustomerFormGroup">
+        <tr bgcolor="#36AD74">
+          <th colspan="2"
+              style="color: white;text-align: center;font-size: 35px;margin-top: 20px;font-family: Times New Roman,fantasy">
+            CẬP NHẬT KHÁCH HÀNG
+          </th>
+        </tr>
+        <tr>
+          <td>Tên khách hàng:</td>
+          <td><input class="form-control" formControlName="name" id="name"></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>
+            <div class="form-group text-danger"
+                 *ngIf="updateCustomerFormGroup.controls.name.hasError('required')
+                  && updateCustomerFormGroup.controls.name.touched">
+              Tên không được để trống!
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>
+            <div class="form-group text-danger"
+                 *ngIf="updateCustomerFormGroup.controls.name.hasError('pattern')
+          && updateCustomerFormGroup.controls.name.dirty">
+              Sai định dạng tên!
+            </div>
+          </td>
+        </tr>
 
-    <tr>
-      <td>GIỚI TÍNH:</td>
-      <td>
-        <input type="radio" value="true" name="gender"> checked>Name
-        <input type="radio" value="false" name="gender" >>Nữ
-      </td>
-    </tr>
-    <tr>
-      <td>NGÀY SINH:</td>
-      <td><input class="form-control" type="date" ></td>
-    </tr>
+        <tr>
+          <td>Giới tính:</td>
+          <td>
+            <label>
+              <input type="radio" value="true" name="gender" formControlName="gender">Nam<span
+              class='bi bi-gender-male'
+              style="color: darkmagenta">&ensp; &ensp; &ensp; </span>
+            </label>
+
+            <label>
+              <input type="radio" value="false" name="gender" formControlName="gender">Nữ<span
+              class='bi bi-gender-female' style="color: darkmagenta"></span>
+            </label>
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>
+            <div class="form-group text-danger"
+                 *ngIf="updateCustomerFormGroup.controls.gender.hasError('required')
+          && updateCustomerFormGroup.controls.gender.dirty">
+              Giới tính không được để trống!
+            </div>
+          </td>
+        </tr>
 
 
-    <tr>
-      <td>SỐ CMND:</td>
-      <td><input class="form-control" type="text" ></td>
-    </tr>
+        <tr>
+          <td>
+            Ngày sinh:
+          </td>
+          <td><input type="date" id="dateOfBirth" formControlName="dateOfBirth" class="form-control"/>
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>
+            <div class="form-group text-danger"
+                 *ngIf="updateCustomerFormGroup.controls.dateOfBirth.hasError('invalid18')
+          && updateCustomerFormGroup.controls.dateOfBirth.dirty">
+              Tuổi phải lớn hơn 18!
+            </div>
+          </td>
+        </tr>
 
+        <tr>
+          <td>
+            Số CMND:
+          </td>
+          <td><input class="form-control" name="idCard" formControlName="idCard"></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>
+            <div class="form-group text-danger"
+                 *ngIf="updateCustomerFormGroup.controls.idCard.hasError('required')
+          && updateCustomerFormGroup.controls.idCard.touched">
+              Số CMND không được để trống !
+            </div>
+          </td>
+        </tr>
 
-    <tr>
-      <td>SỐ ĐIỆN THOẠI:</td>
-      <td><input class="form-control" type="text" ></td>
-    </tr>
+        <tr>
+          <td>
+            Số điện thoại:
+          </td>
+          <td><input class="form-control" name="phoneNumber" formControlName="phoneNumber"></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>
+            <div class="form-group text-danger"
+                 *ngIf="updateCustomerFormGroup.controls.phoneNumber.hasError('required')
+          && updateCustomerFormGroup.controls.phoneNumber.touched">
+              Số điện thoại không được để trống !
+            </div>
+          </td>
+        </tr>
 
-    <tr>
-      <td>EMAIL:</td>
-      <td><input class="form-control" type="text" ></td>
-    </tr>
+        <tr>
+          <td>
+            Email:
+          </td>
+          <td><input class="form-control" name="email" formControlName="email"></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>
+            <div class="form-group text-danger"
+                 *ngIf="updateCustomerFormGroup.controls.email.hasError('required')
+          && updateCustomerFormGroup.controls.email.touched">
+              Email không được để trống !
+            </div>
+          </td>
+        </tr>
 
-    <tr>
-      <td>ĐỊA CHỈ:</td>
-      <td><input class="form-control" type="text"></td>
-    </tr>
-
-    <tr>
-      <td>LOẠI KHÁCH HÀNG:</td>
-      <td>
-        <select >
-          <option class="form-control" ></option>
-        </select>
-      </td>
-    </tr>
-    <tr>
-      <td></td>
-      <td>
-        <button class="btn btn-primary" type="submit">Cập nhật</button>
-      </td>
-    </tr>
-  </table>
-</form>
+        <tr>
+          <td></td>
+          <td>
+            <div class="form-group text-danger"
+                 *ngIf="updateCustomerFormGroup.controls.email.hasError('email')
+          && updateCustomerFormGroup.controls.email.touched">
+              Sai định dạng email !
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Địa chỉ:
+          </td>
+          <td><input class="form-control" name="address" formControlName="address"></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>
+            <div class="form-group text-danger"
+                 *ngIf="updateCustomerFormGroup.controls.address.hasError('required')
+          && updateCustomerFormGroup.controls.address.touched">
+              Địa chỉ không được để trống !
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="img-fluid">
+            Loại khách hàng:
+          </td>
+          <td>
+            <select class="form-select" formControlName="customerType">
+              <option class="form-control">Diamond</option>
+              <option class="form-control">Platinum</option>
+              <option class="form-control">Gold</option>
+              <option class="form-control">Silver</option>
+              <option class="form-control">Member</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>
+            <button class="btn btn-primary btn-outline-primary " type="submit" value="Create"
+                    (click)="giveFormValue()"
+                    [disabled]="updateCustomerFormGroup.invalid">Thêm mới
+            </button>
+          </td>
+        </tr>
+      </table>
+    </form>
+  </div>
+</div>

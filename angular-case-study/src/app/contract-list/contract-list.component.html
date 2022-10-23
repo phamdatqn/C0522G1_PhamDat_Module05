@@ -1,7 +1,7 @@
 <table class="table table-striped" style="margin-top: 10px" border="1">
   <tr>
     <th>STT</th>
-    <th>Tên dịch vụ</th>
+    <th>Mã dịch vụ</th>
     <th>Tên khách hàng</th>
     <th>Ngày bắt đầu</th>
     <th>Ngày kết thúc</th>
@@ -10,15 +10,13 @@
     <th>Các dịch vụ đi kèm</th>
     <th>Xóa hợp đồng</th>
   </tr>
-  <tr>
-    <td>1</td>
-    <td>Villa Vip</td>
-    <td>Đạt Phạm</td>
-    <td>2022-12-12</td>
-    <td>2022-12-15</td>
-    <td>1000000</td>
-    <td>10000000</td>
-    <td>Không</td>
+  <tr *ngFor="let contract of contractList;index as i">
+    <td>{{i+1}}</td>
+    <td>{{contract.facilityId}}</td>
+    <td>{{contract.startDate}}</td>
+    <td>{{contract.endDate}}</td>
+    <td>{{contract.deposit}}</td>
+    <td>{{contract.totalMoney}}</td>
     <td colspan="2">
       <button
         class="btn btn-success btn-outline-info" data-bs-toggle="modal"
@@ -39,33 +37,5 @@
       </a>
     </td>
   </tr>
-  <tr>
-    <td>2</td>
-    <td>Villa Vip 2</td>
-    <td>Đạt Phạm</td>
-    <td>2022-12-12</td>
-    <td>2022-12-15</td>
-    <td>1000000</td>
-    <td>10000000</td>
-    <td>Không</td>
-    <td colspan="2">
-      <button
-        class="btn btn-success btn-outline-info" data-bs-toggle="modal"
-        data-bs-target="#addAttachFacility" style="color: white">
-        +
-      </button>
-      <a href="#">
-        <button
-          class="btn btn-success btn-outline-info" style="color: white">
-          Danh sách dịch vụ đi kèm
-        </button>
-      </a>
-      <a href="#">
-        <button
-          class="btn btn-danger btn-outline-success">
-          <span style="color: white" class='bi bi-trash'></span>
-        </button>
-      </a>
-    </td>
-  </tr>
+
 </table>

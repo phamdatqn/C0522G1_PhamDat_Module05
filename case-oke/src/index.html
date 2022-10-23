@@ -294,26 +294,13 @@
     });
   });
 
-  function deleteFacility(id, name) {
-    $("#idDelete").val(id);
-    document.getElementById("nameDelete").innerText = name;
-  }
+  $(document).ready(function () {
+    $('#tableContract').dataTable({
+      "dom": 'lrtip',
+      "lengthChange": false,
+      "pageLength": 3
+    });
+  });
+
 </script>
-
-
-<!--<script>-->
-<!--  $(document).ready(function () {-->
-<!--    $('#tableFacility').dataTable({-->
-<!--      "dom": 'lrtip',-->
-<!--      "lengthChange": false,-->
-<!--      "pageLength": 1-->
-<!--    });-->
-<!--  });-->
-
-<!--  function deleteFacility(id, name) {-->
-<!--    $("#idDelete").val(id);-->
-<!--    document.getElementById("nameDelete").innerText = name;-->
-<!--  }-->
-<!--</script>-->
-
 </html>

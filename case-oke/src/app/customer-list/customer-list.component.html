@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <h1 style="color: crimson;text-align: center;font-size: 40px;margin-top: 20px;font-family: Papyrus,fantasy">
+    <h1 style="color: crimson;text-align: center;font-size: 40px;margin-top: 20px;font-family: Times New Roman,fantasy">
       <strong>QUẢN LÝ KHÁCH HÀNG</strong></h1>
   </div>
 
@@ -10,10 +10,12 @@
 
   <div class="row">
     <div class="col-lg-4">
-      <button class="btn btn-primary">+ Thêm mới</button>
+      <a routerLink="/customer/create">
+        <button class="btn btn-primary">+ Thêm mới</button>
+      </a>
     </div>
     <div class="col-lg-4">
-      <form class="d-flex align-items-center m-0 " >
+      <form class="d-flex align-items-center m-0 ">
         <input class="form-control me-2" type="search" placeholder="Nhập tên khách hàng :" aria-label="Search"
                name="search">
         <button class="btn btn-outline-success chu_menu" type="submit" style="color: black">Search</button>
@@ -21,7 +23,7 @@
     </div>
     <div class="col-lg-4"></div>
   </div>
-  <div class="row" style="height: 10px;background: white"> </div>
+  <div class="row" style="height: 10px;background: white"></div>
 
   <div>
     <table id="tableCustomer" class="table table-striped" style="margin-top: 10px">
@@ -40,7 +42,7 @@
       </thead>
       <tbody>
       <tr *ngFor="let customer of customerList;index as i">
-        <td>{{i+1}}</td>
+        <td>{{i + 1}}</td>
         <td>{{customer.name}}</td>
         <td>{{customer.birthDay}}</td>
         <td>{{customer.gender}}</td>
@@ -48,7 +50,7 @@
         <td>{{customer.address}}</td>
         <td>{{customer.customerType}}</td>
         <td>
-          <a routerLink="customer/update/{{customer.id}}}">
+          <a routerLink="/customer/update/{{customer.id}}">
             <button class="btn btn-secondary btn-outline-warning" style="color: white"><span
               class=" bi-pencil-square"></span>
             </button>
@@ -56,7 +58,7 @@
         </td>
         <td>
           <button
-            class="btn btn-outline-danger btn-secondary" data-bs-toggle="modal"
+            class="btn btn-danger btn-outline-secondary" data-bs-toggle="modal"
             data-bs-target="#deleteCustomer">
             <span style="color: white" class='bi bi-trash'></span>
           </button>
