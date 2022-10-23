@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {Title} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-create-facility',
@@ -7,7 +8,8 @@ import {Component, OnInit} from '@angular/core';
 })
 export class CreateFacilityComponent implements OnInit {
 
-  constructor() {
+  constructor(private title: Title) {
+    this.title.setTitle('THÊM MỚI DỊCH VỤ');
   }
 
   ngOnInit(): void {

@@ -24,61 +24,78 @@
   </div>
   <div class="row" style="height: 10px;background: white"> </div>
 
-  <table id="tableContract" class="table table-striped" border="1">
-    <thead>
-    <tr bgcolor="#36AD74" style="color: white">
-      <th>STT</th>
-      <th>Tên dịch vụ</th>
-      <th>Diện tích</th>
-      <th>Số lượng người tối đa</th>
-      <th>Kiểu thuê</th>
-      <th>Phí thuê</th>
-      <th>Cập nhật</th>
-      <th>Xóa</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let facility of facilityList;index as i">
-      <td>{{i+1}}</td>
-      <td>{{facility.name}}</td>
-      <td>{{facility.area}}</td>
-      <td>{{facility.maxPerson}}</td>
-      <td>{{facility.rentType}}</td>
-      <td>{{facility.rentalCosts}}</td>
-      <td>
-        <a routerLink="facility/update/{{facility.id}}">
-          <button class="btn btn-secondary btn-outline-warning" style="color: white"><span
-            class=" bi-pencil-square"></span>
+  <div class="row">
+    <div class="col-sm-4 mb-4" *ngFor="let item of facilityList">
+      <div class="card">
+        <img height="250px"
+             src="{{item.img}}"
+             class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{item.name | uppercase}}</h5>
+          <div class="row mb-2">
+            <div class="col-sm-6">
+              <span class="card-text">Loại dịch vụ: {{item.facilityType | uppercase}}</span><br>
+              <span class="card-text">Diện tích: {{item.area}} m<sup>2</sup></span><br>
+              <span class="card-text">Chí phí thuê: {{item.rentalCosts | currency: "VND"}}</span>
+            </div>
+            <div class="col-sm-6">
+              <span class="card-text">Số người tối đa: {{item.maxPeople}}</span><br>
+              <span class="card-text">Kiểu thuê: {{item.rentType}}</span>
+            </div>
+          </div>
+          <a routerLink="/facility/update/{{item.id}}" class="me-2">
+            <button class="btn btn-warning btn-outline-secondary text-dark">Cật nhật</button>
+          </a>
+          <button class="btn btn-danger btn-outline-secondary text-light"
+                  data-bs-toggle="modal" data-bs-target="#deleteFacility"
+                  (click)="getInfoFacilityDelete(item.img, item.name, item.id)">Xóa
           </button>
-        </a>
-      </td>
-      <td>
-        <button
-          class="btn btn-danger btn-outline-secondary" data-bs-toggle="modal"
-          data-bs-target="#deleteFacility">
-          <span style="color: white" class='bi bi-trash'></span>
-        </button>
-      </td>
-    </tr>
-    </tbody>
-  </table>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
+
+<nav aria-label="..." class="justify-content-center d-flex">
+  <ul class="pagination">
+    <li class="page-item">
+      <a class="page-link" (click)="previous()" *ngIf="curPage > 1">&laquo; Trang trước</a>
+    </li>
+    <li class="page-item disabled" *ngIf="curPage <= 1">
+      <a class="page-link">&laquo;</a>
+    </li>
+
+    <li class="page-item"><a class="page-link disabled" href="" [text]="curPage + ' / ' + totalPage"></a>
+    </li>
+
+    <li class="page-item">
+      <a class="page-link" (click)="next()" *ngIf="curPage < totalPage">Trang sau &raquo;</a>
+    </li>
+    <li class="page-item disabled" *ngIf="curPage >= totalPage">
+      <a class="page-link">&raquo;</a>
+    </li>
+  </ul>
+</nav>
+
 
 <!-- Delete Facility -->
 <div class="modal fade" id="deleteFacility" tabindex="-1" aria-labelledby="exampleModalLabel1"
-     aria-hidden="true" style="height: 100%">
+     aria-hidden="true">
   <div class="modal-dialog">
-    <div class="modal-content">
+    <div class="modal-content modalCSS">
       <div class="modal-header">
-        <h4 class="modal-title" id="exampleModalLabel1">Bạn có chắc chắn muốn xóa dịch vụ?</h4>
+        <h4 class="modal-title" id="exampleModalLabel1">Bạn có chắc chắn muốn xóa?</h4>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body">
-        <div class="modal-footer">
-          <button type="submit" class="btn btn-secondary" data-bs-dismiss="modal">Đóng
-          </button>
-          <button type="submit" class="btn btn-danger" value="delete">Xóa</button>
-        </div>
+
+      <div class="modal-body" style="text-align: center">
+        <img class="img-fluid pb-3" src="{{facilityImageDelete}}" alt="..."><br>
+        <span class="h6">Dịch vụ:</span><strong class="text-danger ps-2">{{facilityNameDelete | uppercase}}</strong>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+        <button type="submit" class="btn btn-danger" data-bs-dismiss="modal" (click)="deleteFacility()">Xóa</button>
       </div>
     </div>
   </div>

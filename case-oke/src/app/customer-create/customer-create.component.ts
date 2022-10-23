@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {AbstractControl, FormControl, FormGroup, Validators} from '@angular/forms';
+import {Title} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-customer-create',
@@ -8,9 +9,8 @@ import {AbstractControl, FormControl, FormGroup, Validators} from '@angular/form
 })
 export class CustomerCreateComponent implements OnInit {
   createCustomerFormGroup: FormGroup;
-  constructor() { }
-
-  ngOnInit(): void {
+  constructor(private title: Title) {
+    this.title.setTitle('THÊM MỚI KHÁCH HÀNG');
     this.createCustomerFormGroup = new FormGroup({
       name: new FormControl('', Validators.required),
       // name: new FormControl('', [Validators.required,
@@ -25,6 +25,8 @@ export class CustomerCreateComponent implements OnInit {
       //   '^([\\\\p{Lu}][\\\\p{Ll}]{1,8})(\\\\s([\\\\p{Lu}]|[\\\\p{Lu}][\\\\p{Ll}]{1,10})){0,5}$')]),
       customerType: new FormControl('')
     });
+  }
+  ngOnInit(): void {
   }
 
   private checkAge(abstractControl: AbstractControl): any {

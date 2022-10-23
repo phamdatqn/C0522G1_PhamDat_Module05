@@ -4,10 +4,10 @@ export interface Facility {
   name: string;
   area: number;
   rentalCosts: number;
-  maxPerson: number;
+  maxPeople: number;
   isDelete: boolean;
   rentType: number;
-  facilityType: number;
+  facilityType: string;
   description?: string;
   room?: string;
   floor?: number;

@@ -25,7 +25,7 @@
   </div>
   <div class="row" style="height: 10px;background: white"></div>
 
-  <div >
+  <div class="row">
     <table id="tableContract" class="table table-striped" style="margin-top: 10px">
       <thead>
       <tr bgcolor="#36AD74" style="color: white">
@@ -74,6 +74,26 @@
     </table>
   </div>
 </div>
+<nav aria-label="..." class="justify-content-center d-flex">
+  <ul class="pagination">
+    <li class="page-item">
+      <a class="page-link" (click)="previous()" *ngIf="curPage > 1">&laquo; Trang trước</a>
+    </li>
+    <li class="page-item disabled" *ngIf="curPage <= 1">
+      <a class="page-link">&laquo;</a>
+    </li>
+
+    <li class="page-item"><a class="page-link disabled" href="" [text]="curPage + ' / ' + totalPage"></a>
+    </li>
+
+    <li class="page-item">
+      <a class="page-link" (click)="next()" *ngIf="curPage < totalPage">Trang sau &raquo;</a>
+    </li>
+    <li class="page-item disabled" *ngIf="curPage >= totalPage">
+      <a class="page-link">&raquo;</a>
+    </li>
+  </ul>
+</nav>
 
 <!-- thêm mới hợp đồng application modal -->
 <div class="modal fade" id="addContractModal" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">

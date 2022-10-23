@@ -3,6 +3,7 @@ import {AbstractControl, FormControl, FormGroup, Validators} from '@angular/form
 import {Customer} from '../model/customer';
 import {ActivatedRoute} from '@angular/router';
 import {CustomerService} from '../service/customer.service';
+import {Title} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-customer-update',
@@ -13,7 +14,9 @@ export class CustomerUpdateComponent implements OnInit {
   customer: Customer;
   updateCustomerFormGroup: FormGroup;
   constructor(private customerService: CustomerService,
-              private activatedRoute: ActivatedRoute) {
+              private activatedRoute: ActivatedRoute,
+              private title: Title) {
+    this.title.setTitle('CẬP NHẬT KHÁCH HÀNG');
     const id = Number(this.activatedRoute.snapshot.params.id);
     this.customer = this.customerService.findById(id);
     this.updateCustomerFormGroup = new FormGroup({
@@ -32,10 +35,12 @@ export class CustomerUpdateComponent implements OnInit {
     });
     this.updateCustomerFormGroup.patchValue(this.customer);
 
+
   }
 
   ngOnInit(): void {
       }
+
   private checkAge(abstractControl: AbstractControl): any {
     const formYear = Number(abstractControl.value.substr(0, 4));
     const curYear = new Date().getFullYear();

@@ -25,7 +25,7 @@
   </div>
   <div class="row" style="height: 10px;background: white"></div>
 
-  <div>
+  <div  class="row">
     <table id="tableCustomer" class="table table-striped" style="margin-top: 10px">
       <thead>
       <tr bgcolor="#36AD74" style="color: white">
@@ -44,7 +44,7 @@
       <tr *ngFor="let customer of customerList;index as i">
         <td>{{i + 1}}</td>
         <td>{{customer.name}}</td>
-        <td>{{customer.birthDay}}</td>
+        <td>{{customer.dateOfBirth}}</td>
         <td>{{customer.gender}}</td>
         <td>{{customer.idCard}}</td>
         <td>{{customer.address}}</td>
@@ -57,10 +57,9 @@
           </a>
         </td>
         <td>
-          <button
-            class="btn btn-danger btn-outline-secondary" data-bs-toggle="modal"
-            data-bs-target="#deleteCustomer">
-            <span style="color: white" class='bi bi-trash'></span>
+          <button class="btn btn-danger btn-outline-secondary text-light"
+                  data-bs-toggle="modal" data-bs-target="#deleteCustomer"
+                  (click)="getInfoCustomerDelete(customer.id, customer.name)">  <span style="color: white" class='bi bi-trash'></span>
           </button>
         </td>
       </tr>
@@ -73,27 +72,40 @@
 <div class="modal fade" id="deleteCustomer" tabindex="-1" aria-labelledby="exampleModalLabel1"
      aria-hidden="true">
   <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title" id="exampleModalLabel1">Bạn có chắc chắn muốn xóa khách hàng?</h4>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    <div class="modal-content modalCSS" >
+
+      <div class="modal-body" style="text-align: center">
+        <h3 class="modal-title" id="exampleModalLabel1" style="text-align: center">Bạn có chắc chắn muốn xóa?</h3>
+        <span class="h6">Tên khách hàng:</span><strong class="text-danger ps-2">{{customerNameDelete | uppercase}}</strong>
       </div>
 
-      <form>
-        <div class="modal-body">
-          <span class="h6">Khách hàng:</span>
-          <strong id="nameDelete" class="text-danger ps-2"></strong>
-          <input type="hidden" name="id" id="idDelete" readonly/>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
-          <button type="submit" class="btn btn-danger" value="delete">Xóa</button>
-        </div>
-      </form>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+        <button type="submit" class="btn btn-danger" data-bs-dismiss="modal" (click)="deleteCustomer()">Xóa</button>
+      </div>
     </div>
   </div>
 </div>
+<nav aria-label="..." class="justify-content-center d-flex">
+  <ul class="pagination">
+    <li class="page-item">
+      <a class="page-link" (click)="previous()" *ngIf="curPage > 1">&laquo; Trang trước</a>
+    </li>
+    <li class="page-item disabled" *ngIf="curPage <= 1">
+      <a class="page-link">&laquo;</a>
+    </li>
 
+    <li class="page-item"><a class="page-link disabled" href="" [text]="curPage + ' / ' + totalPage"></a>
+    </li>
+
+    <li class="page-item">
+      <a class="page-link" (click)="next()" *ngIf="curPage < totalPage">Trang sau &raquo;</a>
+    </li>
+    <li class="page-item disabled" *ngIf="curPage >= totalPage">
+      <a class="page-link">&raquo;</a>
+    </li>
+  </ul>
+</nav>
 
 
 
