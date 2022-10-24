@@ -18,7 +18,7 @@ export class FacilityService {
       rentType: 1,
       facilityType: 'Villa',
       description: 'Có hồ bơi',
-      room: 'Vip',
+      standardRoom: 'Vip',
       floor: 5,
       areaPool: 200,
       free: ''
@@ -33,7 +33,7 @@ export class FacilityService {
       rentType: 2,
       facilityType: 'House',
       description: 'Có hồ bơi',
-      room: 'Vip',
+      standardRoom: 'Vip',
       floor: 5,
       areaPool: 200,
       free: ''
@@ -48,7 +48,7 @@ export class FacilityService {
       rentType: 3,
       facilityType: 'Room',
       description: 'Có hồ bơi',
-      room: 'Vip',
+      standardRoom: 'Vip',
       floor: 5,
       areaPool: 200,
       free: ''
@@ -63,7 +63,7 @@ export class FacilityService {
       rentType: 3,
       facilityType: 'Villa',
       description: 'Có hồ bơi',
-      room: 'Vip',
+      standardRoom: 'Vip',
       floor: 5,
       areaPool: 200,
       free: ''
@@ -78,7 +78,7 @@ export class FacilityService {
       rentType: 1,
       facilityType: 'House',
       description: 'Có hồ bơi',
-      room: 'Vip',
+      standardRoom: 'Vip',
       floor: 5,
       areaPool: 200,
       free: ''
@@ -93,7 +93,7 @@ export class FacilityService {
       rentType: 2,
       facilityType: 'Room',
       description: 'Có hồ bơi',
-      room: 'Vip',
+      standardRoom: 'Vip',
       floor: 5,
       areaPool: 200,
       free: ''
@@ -108,7 +108,7 @@ export class FacilityService {
       rentType: 3,
       facilityType: 'Villa',
       description: 'Có hồ bơi',
-      room: 'Vip',
+      standardRoom: 'Vip',
       floor: 5,
       areaPool: 200,
       free: ''
@@ -123,7 +123,7 @@ export class FacilityService {
       rentType: 3,
       facilityType: 'House',
       description: 'Có hồ bơi',
-      room: 'Vip',
+      standardRoom: 'Vip',
       floor: 5,
       areaPool: 200,
       free: ''

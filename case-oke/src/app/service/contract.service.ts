@@ -1,6 +1,5 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {Contract} from '../model/contract';
-import {Title} from '@angular/platform-browser';
 
 @Injectable({
   providedIn: 'root'
@@ -92,9 +91,20 @@ export class ContractService {
       contractDetailsId: 1
     },
   ];
-  constructor() { }
+
+  constructor() {
+  }
 
   getAll(): Contract[] {
     return this.contractList;
+  }
+
+  deleteContract(id: number): void {
+    for (let i = 0; i < this.contractList.length; i++) {
+      if (this.contractList[i].id === id) {
+        this.contractList.splice(i, 1);
+        break;
+      }
+    }
   }
 }

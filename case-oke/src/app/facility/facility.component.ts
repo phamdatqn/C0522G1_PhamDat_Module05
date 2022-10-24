@@ -15,6 +15,7 @@ export class FacilityComponent implements OnInit {
   facilityImageDelete: string;
   facilityIdDelete: number;
 
+
   constructor(private facilityService: FacilityService,
               private title: Title) {
     this.title.setTitle('DANH SÁCH DỊCH VỤ');

@@ -10,8 +10,9 @@
 
   <div class="row">
     <div class="col-lg-4">
-        <button class="btn btn-primary"  data-bs-toggle="modal"
-                data-bs-target="#addContractModal">+ Thêm mới</button>
+      <button class="btn btn-primary" data-bs-toggle="modal"
+              data-bs-target="#addContractModal">+ Thêm mới
+      </button>
 
     </div>
     <div class="col-lg-4">
@@ -55,19 +56,19 @@
             data-bs-target="#addAttachFacility" style="color: white">
             +
           </button>
-            <button
-              class="btn btn-primary btn-outline-info"
-              data-bs-toggle="modal" data-bs-target="#modalShowDetail"
-              style="color: white">
-              Danh sách dịch vụ đi kèm
-            </button>
+          <button
+            class="btn btn-primary btn-outline-info"
+            data-bs-toggle="modal" data-bs-target="#modalShowDetail"
+            style="color: white">
+            Danh sách dịch vụ đi kèm
+          </button>
         </td>
         <td>
-            <button
-              class="btn btn-danger btn-outline-secondary" data-bs-toggle="modal"
-              data-bs-target="#deleteContract">
-              <span style="color: white" class='bi bi-trash'></span>
-            </button>
+          <button class="btn btn-danger btn-outline-secondary text-light"
+                  data-bs-toggle="modal" data-bs-target="#deleteContract"
+                  (click)="getInfoContractDelete(contract.id, contract.customerId)"><span style="color: white"
+                                                                                          class='bi bi-trash'></span>
+          </button>
         </td>
       </tr>
       </tbody>
@@ -99,9 +100,10 @@
 <div class="modal fade" id="addContractModal" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
-      <form class="border border-2 border-success p-3 "  method="POST">
+      <form class="border border-2 border-success p-3 " method="POST" [formGroup]="createContractFormGroup">
         <div class="modal-title">
-          <h3 style="color: crimson;text-align: center;font-size: 40px;margin-top: 20px;font-family: Times New Roman,fantasy">
+          <h3
+            style="color: crimson;text-align: center;font-size: 40px;margin-top: 20px;font-family: Times New Roman,fantasy">
             THÊM MỚI HỢP ĐỒNG
           </h3>
         </div>
@@ -109,56 +111,128 @@
           <table class="table table-striped" border="1">
             <tr>
               <td>NGÀY BẮT ĐẦU:</td>
-              <td><input class="form-control" type="date"></td>
+              <td><input class="form-control" type="date" formControlName="startDate"></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>
+                <div class="form-group text-danger"
+                     *ngIf="createContractFormGroup.controls.startDate.hasError('required')
+                  && createContractFormGroup.controls.startDate.touched">
+                  Ngày bắt đầu không được để trống!
+                </div>
+              </td>
             </tr>
 
             <tr>
               <td>NGÀY KẾT THÚC:</td>
-              <td><input class="form-control" type="date"></td>
+              <td><input class="form-control" formControlName="endDate" type="date"></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>
+                <div class="form-group text-danger"
+                     *ngIf="createContractFormGroup.controls.endDate.hasError('required')
+                  && createContractFormGroup.controls.endDate.touched">
+                  Ngày kết thúc không được để trống!
+                </div>
+              </td>
             </tr>
 
             <tr>
-              <td>TIỀN GỬI:</td>
-              <td><input class="form-control" ></td>
+              <td>TIỀN CỌC:</td>
+              <td><input class="form-control" formControlName="deposit"></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>
+                <div class="form-group text-danger"
+                     *ngIf="createContractFormGroup.controls.deposit.hasError('pattern')
+                  && createContractFormGroup.controls.deposit.touched">
+                  Tiền cọc phải là số!
+                </div>
+              </td>
             </tr>
             <tr>
               <td>TỔNG TIỀN:</td>
-              <td><input class="form-control" type="text" ></td>
+              <td><input class="form-control" type="text" formControlName="totalMoney"></td>
             </tr>
+            <tr>
+              <td></td>
+              <td>
+                <div class="form-group text-danger"
+                     *ngIf="createContractFormGroup.controls.totalMoney.hasError('required')
+                  && createContractFormGroup.controls.totalMoney.touched">
+                  Tổng tiền không được để trống!
+                </div>
+              </td>
+            </tr>
+
             <tr>
               <td>KHÁCH HÀNG:</td>
               <td>
-                <select class="form-select">
-                  <option>Đạt Phạm</option>
-                  <option>Đẹt Phạm</option>
-                  <option>Phạm Đẹt</option>
+                <select id="customerId" class="form-select" formControlName="customerId">
+                  <option [ngValue]="item" *ngFor="let item of customerList" name="customerId">{{item}}</option>
                 </select>
               </td>
             </tr>
+            <tr>
+              <td></td>
+              <td>
+                <div class="form-group text-danger"
+                     *ngIf="createContractFormGroup.controls.customerId.hasError('required')
+                  && createContractFormGroup.controls.customerId.touched">
+                  Khách hàng không được để trống!
+                </div>
+              </td>
+            </tr>
+
             <tr>
               <td>NHÂN VIÊN:</td>
               <td>
-                <select class="form-select">
-                  <option>Đạt Phạm</option>
-                  <option>Đẹt Phạm</option>
-                  <option>Phạm Đẹt</option>
+                <select id="employeeId" class="form-select" formControlName="employeeId">
+                  <option [ngValue]="item" *ngFor="let item of employeeList" name="employeeId">{{item}}</option>
                 </select>
               </td>
             </tr>
             <tr>
+              <td></td>
+              <td>
+                <div class="form-group text-danger"
+                     *ngIf="createContractFormGroup.controls.employeeId.hasError('required')
+                  && createContractFormGroup.controls.employeeId.touched">
+                  Nhân viên không được để trống!
+                </div>
+              </td>
+            </tr>
+
+
+            <tr>
               <td>DỊCH VỤ:</td>
               <td>
-                <select class="form-select">
-                  <option>Villa Vip</option>
-                  <option>House</option>
-                  <option>Room</option>
+                <select id="facilityId" class="form-select" formControlName="facilityId">
+                  <option [ngValue]="item" *ngFor="let item of facilityTypeList" name="facilityId">{{item}}</option>
                 </select>
               </td>
             </tr>
+            <tr>
+              <td></td>
+              <td>
+                <div class="form-group text-danger"
+                     *ngIf="createContractFormGroup.controls.facilityId.hasError('required')
+                  && createContractFormGroup.controls.facilityId.touched">
+                  Dịch vụ không được để trống!
+                </div>
+              </td>
+            </tr>
+
           </table>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
-            <button type="submit" class="btn btn-success" data-bs-dismiss="modal">Tạo mới</button>
+            <button class="btn btn-primary btn-outline-primary " type="submit" value="Create"
+                    (click)="giveFormValue()"
+                    [disabled]="createContractFormGroup.invalid">Thêm mới
+            </button>
           </div>
         </div>
       </form>
@@ -173,7 +247,8 @@
     <div class="modal-content">
       <form class="border border-2 border-success p-3 " method="POST">
         <div class="modal-title">
-          <h4 style="color: crimson;text-align: center;font-size: 40px;margin-top: 20px;font-family: Times New Roman,fantasy">
+          <h4
+            style="color: crimson;text-align: center;font-size: 40px;margin-top: 20px;font-family: Times New Roman,fantasy">
             THÊM MỚI HỢP
             ĐỒNG CHI TIẾT</h4>
         </div>
@@ -183,10 +258,10 @@
             <tr>
               <td>TÊN DỊCH VỤ:</td>
               <td>
-                <select class="form-select" >
-                  <option >Karaoke</option>
-                  <option >Xe đạp</option>
-                  <option >Xe Máy</option>
+                <select class="form-select">
+                  <option>Karaoke</option>
+                  <option>Xe đạp</option>
+                  <option>Xe Máy</option>
                 </select>
               </td>
             </tr>
@@ -216,7 +291,8 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-title">
-        <h3 style="color: crimson;text-align: center;font-size: 40px;margin-top: 20px;font-family: Times New Roman,fantasy">
+        <h3
+          style="color: crimson;text-align: center;font-size: 40px;margin-top: 20px;font-family: Times New Roman,fantasy">
           DANH SÁCH DỊCH VỤ ĐI KÈM</h3>
       </div>
       <div class="modal-body">
@@ -230,12 +306,12 @@
             <th>Đơn vị</th>
           </tr>
           <tr>
-            <td ></td>
-            <td style="color: #0c63e4" ></td>
-            <td style="color: brown" ></td>
-            <td style="color: brown" ></td>
-            <td style="color: brown" ></td>
-            <td style="color: brown" ></td>
+            <td></td>
+            <td style="color: #0c63e4"></td>
+            <td style="color: brown"></td>
+            <td style="color: brown"></td>
+            <td style="color: brown"></td>
+            <td style="color: brown"></td>
           </tr>
         </table>
       </div>
@@ -252,23 +328,19 @@
 <div class="modal fade" id="deleteContract" tabindex="-1" aria-labelledby="exampleModalLabel1"
      aria-hidden="true">
   <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title" id="exampleModalLabel1">Bạn có chắc chắn muốn xóa hợp đồng?</h4>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    <div class="modal-content modalCSS">
+
+      <div class="modal-body" style="text-align: center">
+        <h3 class="modal-title" id="exampleModalLabel1" style="text-align: center">Bạn có chắc chắn muốn xóa hợp
+          đồng?</h3>
+        <span class="h6">Mã khách hàng:</span><strong
+        class="text-danger ps-2">{{customerIdDelete}}</strong>
       </div>
 
-      <form>
-        <div class="modal-body">
-          <span class="h6">Khách hàng:</span>
-          <strong id="nameDelete" class="text-danger ps-2"></strong>
-          <input type="hidden" name="id" id="idDelete" readonly/>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
-          <button type="submit" class="btn btn-danger" value="delete">Xóa</button>
-        </div>
-      </form>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+        <button type="submit" class="btn btn-danger" data-bs-dismiss="modal" (click)="deleteContract()">Xóa</button>
+      </div>
     </div>
   </div>
 </div>

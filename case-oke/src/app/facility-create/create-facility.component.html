@@ -4,7 +4,7 @@
   </div>
   <div class="row">
     <form method="post" style="margin-left:20%;width: 60%">
-      <table class="table table-striped" border="1">
+      <table class="table table-striped" border="1" [formGroup]="createFacilityFormGroup">
         <tr bgcolor="#36AD74">
           <th colspan="2"
               style="color: white;text-align: center;font-size: 40px;margin-top: 20px;font-family: Times New Roman,fantasy">
@@ -15,46 +15,156 @@
         <tr>
           <td>CHỌN LOẠI DỊCH VỤ:</td>
           <td>
-            <select class="form-select">
-              <option value="" class="text-danger">Mời chọn dịch vụ</option>
-              <option>Villa</option>
-              <option>House</option>
-              <option>Room</option>
+            <select id="facilityType" class="form-select" formControlName="facilityType">
+              <option [ngValue]="item" *ngFor="let item of facilityTypeList" name="facilityType">{{item}}</option>
             </select>
           </td>
         </tr>
         <tr>
-          <td>TÊN DỊCH VỤ:</td>
+          <td></td>
           <td>
-            <input class="form-control"/>
+            <div class="form-group text-danger"
+                 *ngIf="createFacilityFormGroup.controls.facilityType.hasError('required')
+                  && createFacilityFormGroup.controls.facilityType.touched">
+              Loại dịch vụ không được để trống!
+            </div>
           </td>
         </tr>
 
         <tr>
+          <td>TÊN DỊCH VỤ:</td>
+          <td>
+            <input class="form-control" formControlName="name"/>
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>
+            <div class="form-group text-danger"
+                 *ngIf="createFacilityFormGroup.controls.name.hasError('required')
+                  && createFacilityFormGroup.controls.name.touched">
+              Tên không được để trống!
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>
+            <div class="form-group text-danger"
+                 *ngIf="createFacilityFormGroup.controls.name.hasError('pattern')
+                  && createFacilityFormGroup.controls.name.dirty">
+              Tên sai định dạng!
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>Hình ảnh:</td>
+          <td>
+            <input class="form-control" formControlName="img"/>
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>
+            <div class="form-group text-danger"
+                 *ngIf="createFacilityFormGroup.controls.img.hasError('required')
+                  && createFacilityFormGroup.controls.img.touched">
+              Link hình ảnh không được để trống!
+            </div>
+          </td>
+        </tr>
+        <tr>
           <td>DIỆN TÍCH:</td>
-          <td><input class="form-control"/>
+          <td><input class="form-control" formControlName="area"/>
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>
+            <div class="form-group text-danger"
+                 *ngIf="createFacilityFormGroup.controls.area.hasError('required')
+                  && createFacilityFormGroup.controls.area.touched">
+              Diện tích không được để trống!
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>
+            <div class="form-group text-danger"
+                 *ngIf="createFacilityFormGroup.controls.area.hasError('pattern')
+                  && createFacilityFormGroup.controls.area.dirty">
+              Diện tích phải là số!
+            </div>
           </td>
         </tr>
 
         <tr>
           <td>PHÍ THUÊ:</td>
-          <td><input class="form-control"/></td>
+          <td><input class="form-control" formControlName="rentalCosts"/></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>
+            <div class="form-group text-danger"
+                 *ngIf="createFacilityFormGroup.controls.rentalCosts.hasError('required')
+                  && createFacilityFormGroup.controls.rentalCosts.touched">
+              Phí thuê không được để trống!
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>
+            <div class="form-group text-danger"
+                 *ngIf="createFacilityFormGroup.controls.area.hasError('pattern')
+                  && createFacilityFormGroup.controls.area.dirty">
+              Phí thuê phải là số!
+            </div>
+          </td>
         </tr>
 
         <tr>
           <td>SỐ NGƯỜI TỐI ĐA:</td>
-          <td><input class="form-control"/></td>
+          <td><input class="form-control" formControlName="maxPeople"/></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>
+            <div class="form-group text-danger"
+                 *ngIf="createFacilityFormGroup.controls.maxPeople.hasError('required')
+                  && createFacilityFormGroup.controls.maxPeople.touched">
+              Số lượng người không được để trống!
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>
+            <div class="form-group text-danger"
+                 *ngIf="createFacilityFormGroup.controls.maxPeople.hasError('pattern')
+                  && createFacilityFormGroup.controls.maxPeople.dirty">
+              Số lượng người phải là số!
+            </div>
+          </td>
         </tr>
 
         <tr>
           <td>KIỂU THUÊ:</td>
           <td>
-            <select class="form-select">
-              <option>Giờ</option>
-              <option>Ngày</option>
-              <option>Tháng</option>
-              <option>Năm</option>
+            <select id="rentType" class="form-select" formControlName="rentType">
+              <option [ngValue]="item" *ngFor="let item of rentTypeList" name="rentType">{{item}}</option>
             </select>
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>
+            <div class="form-group text-danger"
+                 *ngIf="createFacilityFormGroup.controls.rentType.hasError('required')
+                  && createFacilityFormGroup.controls.rentType.touched">
+              Kiểu thuê không được để trống!
+            </div>
           </td>
         </tr>
 
@@ -86,7 +196,10 @@
         <tr>
           <td></td>
           <td>
-            <button class="btn btn-primary btn-outline-primary " type="submit" value="Create">Thêm mới</button>
+            <button class="btn btn-primary btn-outline-primary " type="submit" value="Create"
+                    (click)="giveFormValue()"
+                    [disabled]="createFacilityFormGroup.invalid">Thêm mới
+            </button>
           </td>
         </tr>
       </table>

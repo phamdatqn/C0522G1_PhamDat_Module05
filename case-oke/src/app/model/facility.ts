@@ -9,7 +9,7 @@ export interface Facility {
   rentType: number;
   facilityType: string;
   description?: string;
-  room?: string;
+  standardRoom?: string;
   floor?: number;
   areaPool?: number;
   free?: string;
