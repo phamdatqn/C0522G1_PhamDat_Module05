@@ -21,7 +21,7 @@
       <td>Loại hàng:</td>
       <td>
         <select formControlName="category" [compareWith]="compareWithId">
-          <option [ngValue]="temp" *ngFor="let temp of categoryList">{{temp.name}}</option>
+          <option *ngFor="let temp of categoryList" [ngValue]="temp">{{temp.name}}</option>
         </select>
       </td>
     </tr>

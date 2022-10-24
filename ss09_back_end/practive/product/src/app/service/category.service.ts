@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Product} from '../model/product';
@@ -8,6 +8,7 @@ import {Product} from '../model/product';
 })
 export class CategoryService {
   private API_URL_CATEGORY_LIST = 'http://localhost:3000/categoryList';
+
   constructor(private httpClient: HttpClient) {
   }
 

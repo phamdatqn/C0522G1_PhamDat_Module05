@@ -8,6 +8,7 @@ import {Observable} from 'rxjs';
 })
 export class ProductService {
   private API_URL_PRODUCT_LIST = 'http://localhost:3000/productList';
+
   constructor(private httpClient: HttpClient) {
   }
 
@@ -16,23 +17,18 @@ export class ProductService {
   }
 
   findById(id: number): Observable<Product> {
-    return  this.httpClient.get<Product>(this.API_URL_PRODUCT_LIST + '/' + id);
+    return this.httpClient.get<Product>(this.API_URL_PRODUCT_LIST + '/' + id);
   }
 
-  // updateProduct(id: number, product: Product): void {
-  //   for (let i = 0; i < this.productList.length; i++) {
-  //     if (this.productList[i].id === id) {
-  //       this.productList[i] = product;
-  //     }
-  //   }
-  // }
+  deleteProduct(id: number): Observable<void> {
+    return this.httpClient.delete<void>(this.API_URL_PRODUCT_LIST + '/' + id);
+  }
 
-  // deleteProduct(id: number): void {
-  //   this.productList = this.productList.filter(product => {
-  //     return product.id !== id;
-  //   });
-  // }
   saveUpdate(value: Product): Observable<void> {
-  return this.httpClient.patch<void>(this.API_URL_PRODUCT_LIST + '/' + value.id, value);
+    return this.httpClient.patch<void>(this.API_URL_PRODUCT_LIST + '/' + value.id, value);
+  }
+
+  saveCreate(value: Product): Observable<void> {
+    return this.httpClient.post<void>(this.API_URL_PRODUCT_LIST, value);
   }
 }
