@@ -1,0 +1,23 @@
+<h1>Danh Sách Sản Phẩm</h1>
+<table class="table table-striped" border="1">
+  <tr>
+    <th>STT</th>
+    <th>Id</th>
+    <th>Tên</th>
+    <th>Giá</th>
+    <th>Mô tả</th>
+    <th>Loại hàng</th>
+    <th>Sửa</th>
+    <th>Xóa</th>
+  </tr>
+  <tr *ngFor="let product of productList;index as i">
+    <td>{{i + 1}}</td>
+    <td>{{product.id}}</td>
+    <td>{{product.name}}</td>
+    <td>{{product.price}}</td>
+    <td>{{product.description}}</td>
+    <td>{{product.category.name}}</td>
+    <td><a routerLink="/product/update/{{product.id}}">Sửa</a></td>
+    <td><a routerLink="/product/delete/{{product.id}}">Xóa</a></td>
+  </tr>
+</table>
