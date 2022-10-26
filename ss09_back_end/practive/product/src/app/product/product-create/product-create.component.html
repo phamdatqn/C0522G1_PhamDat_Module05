@@ -16,9 +16,8 @@
     <tr>
       <td>Phân loại</td>
       <td>
-        <select formControlName="category">
-          <option disabled>Chọn phân loại hàng..</option>
-          <option *ngFor="let temp of categoryList" [ngValue]="temp" >{{temp.name}}</option>
+        <select formControlName="category" [compareWith]="compareWithId">
+          <option *ngFor="let temp of categoryList" [ngValue]="temp">{{temp.name}}</option>
         </select>
       </td>
     </tr>

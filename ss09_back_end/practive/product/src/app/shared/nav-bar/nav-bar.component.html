@@ -1,0 +1,66 @@
+<marquee behavior="alternate"><h1 style="text-align: center"> CHÀO MỪNG BẠN ĐẾN VỚI<h1 style="text-align: center;color: rebeccapurple"> DAT STORE</h1></h1></marquee>
+<div>
+  <nav class="navbar navbar-expand-lg navbar-light backgroundFooter"
+       style="background: green;height: 40px">
+    <a class="navbar-brand chu_menu" routerLink="/product/list"
+       style="color: white;margin-left: 10%">TRANG CHỦ</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarProduct">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle chu_menu" href="#" role="button"
+             data-bs-toggle="dropdown" aria-expanded="false" style="color: white">
+            Product
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarEmployee">
+            <li><a class="dropdown-item" routerLink="/product/create">
+              <span style="color: green" class='bi bi-person-plus-fill'></span>
+              <span style="color: green">Thêm Mới</span></a></li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+            <li><a class="dropdown-item" routerLink="/product/list">
+              <span style="color: red" class='bi bi-gear-wide-connected'></span>
+              <span style="color: red">Quản Lý</span></a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle chu_menu" href="#" role="button"
+             data-bs-toggle="dropdown" aria-expanded="false" style="color: white">
+            Category
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navBarCategory">
+            <li><a class="dropdown-item" routerLink="/category/create">
+              <span style="color: green" class='bi bi-person-plus-fill'></span>
+              <span style="color: green">Thêm Mới</span></a></li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+            <li><a class="dropdown-item" routerLink="/category/list">
+              <span style="color: red" class='bi bi-gear-wide-connected'></span>
+              <span style="color: red">Quản Lý</span></a></li>
+
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <form class="d-flex align-items-center m-2 ">
+            <span class="btn btn-outline-success chu_menu"
+                  style="font-family:courier,arial,helvetica;color: orange">
+                <strong>
+                <a href="https://www.facebook.com/phamdat.s2" style="color: white;text-decoration: none"
+                   target="_blank"> <span
+                  class=' bi-facebook' style="color: #00aeef"></span> Đạt Phạm</a>
+                </strong>
+            </span>
+      <span>&ensp;</span>
+    </form>
+  </nav>
+</div>

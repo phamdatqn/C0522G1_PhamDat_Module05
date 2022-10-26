@@ -12,6 +12,7 @@ import {Router} from '@angular/router';
 })
 export class ProductCreateComponent implements OnInit {
   categoryList: Category[];
+  categoryObj: Category;
   productForm: FormGroup = new FormGroup({
     name: new FormControl(),
     price: new FormControl(),
@@ -27,6 +28,7 @@ export class ProductCreateComponent implements OnInit {
   ngOnInit(): void {
     this.categoryService.getAll().subscribe(value => {
       this.categoryList = value;
+      this.productForm.controls.category.setValue(value[0]);
     });
   }
 
@@ -35,5 +37,9 @@ export class ProductCreateComponent implements OnInit {
     this.productService.saveCreate(product).subscribe();
     alert('Thêm mới thành công !');
     this.router.navigateByUrl('/product/list');
+  }
+
+  compareWithId(item1, item2) {
+    return item1 && item2 && item1.id === item2.id;
   }
 }

@@ -1,0 +1,18 @@
+<h1>Sửa Sản phẩm</h1>
+<form [formGroup]="categoryForm">
+  <table>
+    <tr>
+      <td colspan="2"><input hidden type="number" formControlName="id"></td>
+    </tr>
+    <tr>
+      <td>Tên loại hàng:</td>
+      <td><input type="text" formControlName="name"></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <button (click)="deleteProduct(categoryForm.controls.id.value)">Xóa</button>
+      </td>
+    </tr>
+  </table>
+</form>

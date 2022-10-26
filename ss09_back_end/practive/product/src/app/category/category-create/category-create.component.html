@@ -1,0 +1,15 @@
+<h1>Tạo sản phẩm mới</h1>
+<form [formGroup]="categoryForm" (ngSubmit)="saveCreate()" *ngIf="categoryForm != undefined">
+  <table>
+    <tr>
+      <td>Tên loại hàng:</td>
+      <td><input type="text" formControlName="name"></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <button>Tạo mới</button>
+      </td>
+    </tr>
+  </table>
+</form>
