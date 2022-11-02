@@ -3,6 +3,7 @@ import {Sotietkiem} from '../../model/sotietkiem';
 import {SotietkiemService} from '../../service/sotietkiem.service';
 import {FormControl, FormGroup} from '@angular/forms';
 import {Title} from '@angular/platform-browser';
+import {BehaviorSubject, Observable} from 'rxjs';
 
 @Component({
   selector: 'app-sotietkiem-list',
@@ -16,14 +17,14 @@ export class SotietkiemListComponent implements OnInit {
   });
   sotietkiemList: Sotietkiem[];
   curPage = 1;
-  totalPage$: number;
+  size = 4;
+  totalPage$: Observable<number>;
   sotietkiemNameDelete: string;
   sotietkiemIdDelete: number;
 
   getAllPage(search) {
-    this.sotietkiemService.getAll(search).subscribe(value => {
-      console.log(value);
-      this.totalPage$ = value.pageable.totalPages;
+    this.sotietkiemService.paginate(this.curPage, this.size, search).subscribe(value => {
+      this.totalPage$ =  new BehaviorSubject(value.totalPages);
       this.sotietkiemList = value.content;
     });
   }
@@ -42,7 +43,6 @@ export class SotietkiemListComponent implements OnInit {
     this.curPage++;
     this.getAllPage('');
     // this.getAllPage('', (this.curPage - 1) * 3, this.curPage * 3);
-
     this.sotietkiemList = this.sotietkiemList.slice((this.curPage - 1) * 3, this.curPage * 3);
   }
 
@@ -73,7 +73,6 @@ export class SotietkiemListComponent implements OnInit {
 
   timMaSo() {
     const search = this.searchFormGroup.value.maSo;
-    console.log(search);
     // @ts-ignore
     Swal.fire({
       position: 'top-mid',

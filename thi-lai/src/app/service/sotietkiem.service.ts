@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Sotietkiem} from '../model/sotietkiem';
 import {Observable} from 'rxjs';
@@ -15,10 +15,18 @@ export class SotietkiemService {
   }
 
   getAll(search: number): Observable<SearchResult<Sotietkiem>> {
-    return this.httpClient.get<SearchResult<Sotietkiem>>(this.API_URL_SOTIETKIEM_LIST  + '?id=' + search);
+    return this.httpClient.get<SearchResult<Sotietkiem>>(this.API_URL_SOTIETKIEM_LIST + '?id=' + search);
   }
+
+  paginate(page: number, limit: number, search: number): Observable<SearchResult<Sotietkiem>> {
+
+    const URL = this.API_URL_SOTIETKIEM_LIST + '?page=' + (page - 1) + '&size=' + limit + '?id=' + search;
+    console.log(URL);
+    return this.httpClient.get<SearchResult<Sotietkiem>>(URL);
+  }
+
   getAllByName(search: string): Observable<Sotietkiem[]> {
-    return this.httpClient.get<Sotietkiem[]>(this.API_URL_SOTIETKIEM_LIST  + '?KhachHang.name_like=' + search);
+    return this.httpClient.get<Sotietkiem[]>(this.API_URL_SOTIETKIEM_LIST + '?KhachHang.name_like=' + search);
   }
 
   findById(id: number): Observable<Sotietkiem> {

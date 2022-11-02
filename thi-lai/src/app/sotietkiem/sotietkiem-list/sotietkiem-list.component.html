@@ -75,3 +75,42 @@
   </table>
 
 </div>
+<!-- Delete modal -->
+<div class="modal fade" id="deleteCustomer" tabindex="-1" aria-labelledby="exampleModalLabel1"
+     aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content modalCSS">
+
+      <div class="modal-body" style="text-align: center">
+        <h3 class="modal-title" id="exampleModalLabel1" style="text-align: center">Bạn có chắc chắn muốn xóa?</h3>
+        <span class="h6">Tên khách hàng:</span><strong
+        class="text-danger ps-2">{{sotietkiemNameDelete | uppercase}}</strong>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+        <button type="submit" class="btn btn-danger" data-bs-dismiss="modal" (click)="deleteSotietkiem()">Xóa</button>
+      </div>
+    </div>
+  </div>
+</div>
+<nav aria-label="..." class="justify-content-center d-flex">
+  <ul class="pagination">
+    <li class="page-item">
+      <a class="page-link" (click)="previous()" *ngIf="curPage > 1">&laquo; Trang trước</a>
+    </li>
+    <li class="page-item disabled" *ngIf="curPage <= 1">
+      <a class="page-link">&laquo;</a>
+    </li>
+
+    <li class="page-item"><a class="page-link disabled" href="" [text]="curPage + ' / ' + ( totalPage$ | async)"></a>
+    </li>
+
+    <li class="page-item">
+      <a class="page-link" (click)="next()" *ngIf="curPage < ( totalPage$ | async)">Trang sau &raquo;</a>
+    </li>
+    <li class="page-item disabled" *ngIf="curPage >= ( totalPage$ | async)">
+      <a class="page-link">&raquo;</a>
+    </li>
+  </ul>
+</nav>

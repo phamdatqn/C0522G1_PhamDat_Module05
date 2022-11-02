@@ -3,7 +3,7 @@ export interface SearchResult<T> {
   pageable: {
     pageNumber: number;
     pageSize: number;
-    totalPages: number;
-    totalElements: number;
   };
+  totalPages: number;
+  totalElements: number;
 }
