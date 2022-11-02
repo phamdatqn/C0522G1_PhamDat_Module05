@@ -41,7 +41,7 @@
           <td>Giới tính:</td>
           <td>
             <label>
-              <input type="radio" value="true" formControlName="gender">Nam<span
+              <input type="radio" value="true" formControlName="gender" [value]="true">Nam<span
               class='bi bi-gender-male'
               style="color: darkmagenta">&ensp; &ensp; &ensp; </span>
             </label>
@@ -165,6 +165,7 @@
           </td>
           <td>
             <select class="form-select" formControlName="customerType">
+              <option value=""disabled class="form-control">Vui lòng chọn</option>
               <option class="form-control">Diamond</option>
               <option class="form-control">Platinum</option>
               <option class="form-control">Gold</option>

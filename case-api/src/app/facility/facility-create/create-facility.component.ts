@@ -13,20 +13,20 @@ export class CreateFacilityComponent implements OnInit {
   createFacilityFormGroup: FormGroup = new FormGroup({
     img: new FormControl('', Validators.required),
     name: new FormControl('', [Validators.required, Validators.pattern('^[a-zA-Z ]+$')]),
-    area: new FormControl('', [Validators.required, Validators.pattern('^[1-9]\\d*$')]),
-    rentalCosts: new FormControl('', [Validators.required, Validators.pattern('^[1-9]\\d*$')]),
-    maxPeople: new FormControl('', [Validators.required, Validators.pattern('^[1-9]\\d*$')]),
+    area: new FormControl('', [Validators.required]),
+    rentalCosts: new FormControl('', [Validators.required]),
+    maxPeople: new FormControl('', [Validators.required]),
     rentType: new FormControl('', Validators.required),
     facilityType: new FormControl('', Validators.required),
     description: new FormControl('', Validators.required),
     standardRoom: new FormControl(''),
     floor: new FormControl(''),
     areaPool: new FormControl(''),
-    free: new FormControl('')
+    free: new FormControl(''),
+    isDelete: new FormControl(false)
   });
   facilityTypeList: string[] = ['Villa', 'House', 'Room'];
   rentTypeList: string[] = ['Giờ', 'Ngày', 'Tháng', 'Năm'];
-
   constructor(private title: Title,
               private facilityService: FacilityService,
               private router: Router) {
@@ -41,10 +41,27 @@ export class CreateFacilityComponent implements OnInit {
       console.log(this.createFacilityFormGroup.value);
       const product = this.createFacilityFormGroup.value;
       this.facilityService.saveCreate(product).subscribe();
-      alert('Thêm mới thành công !');
+      // @ts-ignore
+      Swal.fire({
+        position: 'top-mid',
+        icon: 'success',
+        title: 'Thêm mới thành công !',
+        showConfirmButton: false,
+        timer: 1500
+      });
       this.router.navigateByUrl('/facility/list');
     } else {
-      alert('Thêm mới thất bại, nhập thiếu dữ liệu !');
+      // @ts-ignore
+        Swal.fire({
+          position: 'top-mid',
+          icon: 'info',
+          title: 'Thêm mới thất bại !',
+          showConfirmButton: false,
+          timer: 1500
+        });
     }
+  }
+  compareWithId(item1, item2) {
+    return item1 && item2 && item1.id === item2.id;
   }
 }

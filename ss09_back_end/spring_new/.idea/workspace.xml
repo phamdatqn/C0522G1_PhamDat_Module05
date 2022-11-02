@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="2781c367-e27a-47e9-a1b1-cf618780c457" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../../thi-lai/src/app/data/data.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../thi-lai/src/app/header/header.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../thi-lai/src/app/header/header.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../thi-lai/src/app/header/header.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../thi-lai/src/app/model/khachhang.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../thi-lai/src/app/model/sotietkiem.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../thi-lai/src/app/service/sotietkiem.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../thi-lai/src/app/sotietkiem/sotietkiem-capnhat/sotietkiem-capnhat.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../thi-lai/src/app/sotietkiem/sotietkiem-capnhat/sotietkiem-capnhat.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../thi-lai/src/app/sotietkiem/sotietkiem-capnhat/sotietkiem-capnhat.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../thi-lai/src/app/sotietkiem/sotietkiem-list/sotietkiem-list.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../thi-lai/src/app/sotietkiem/sotietkiem-list/sotietkiem-list.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../thi-lai/src/app/sotietkiem/sotietkiem-list/sotietkiem-list.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../thi/src/app/data/data.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../thi/src/app/footer/footer.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../thi/src/app/footer/footer.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../thi/src/app/footer/footer.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../thi/src/app/header/header.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../thi/src/app/header/header.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../thi/src/app/header/header.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../thi_spring/thi_spring_management/src/main/java/thi_spring/model/KhachHang.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../thi_spring/thi_spring_management/src/main/java/thi_spring/model/SoTietKiem.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../thi_spring/thi_spring_management/src/main/java/thi_spring/repository/ISoTietKiemRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case-api/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../case-api/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case-api/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../case-api/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case-api/src/app/contract/contract-list/contract-list.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../case-api/src/app/contract/contract-list/contract-list.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case-api/src/app/contract/contract-list/contract-list.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../case-api/src/app/contract/contract-list/contract-list.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case-api/src/app/customer/customer-create/customer-create.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../case-api/src/app/customer/customer-create/customer-create.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case-api/src/app/customer/customer-create/customer-create.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../case-api/src/app/customer/customer-create/customer-create.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case-api/src/app/customer/customer-list/customer-list.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../case-api/src/app/customer/customer-list/customer-list.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case-api/src/app/customer/customer-list/customer-list.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../case-api/src/app/customer/customer-list/customer-list.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case-api/src/app/customer/customer-update/customer-update.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../case-api/src/app/customer/customer-update/customer-update.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case-api/src/app/data/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../case-api/src/app/data/data.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case-api/src/app/facility/facility-create/create-facility.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../case-api/src/app/facility/facility-create/create-facility.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case-api/src/app/facility/facility-create/create-facility.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../case-api/src/app/facility/facility-create/create-facility.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case-api/src/app/facility/facility-list/facility.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../case-api/src/app/facility/facility-list/facility.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case-api/src/app/facility/facility-update/update-facility.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../case-api/src/app/facility/facility-update/update-facility.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case-api/src/app/facility/facility-update/update-facility.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../case-api/src/app/facility/facility-update/update-facility.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case-api/src/app/header/header.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../case-api/src/app/header/header.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case-api/src/app/model/facility.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../case-api/src/app/model/facility.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case-api/src/app/service/customer.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../case-api/src/app/service/customer.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../case-api/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../case-api/src/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss03_angular_overview/practive/angular-change-font-size" beforeDir="false" afterPath="$PROJECT_DIR$/../../ss03_angular_overview/practive/angular-change-font-size" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../practive/product/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../practive/product/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../practive/product/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../practive/product/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../practive/product/src/app/category/category-create/category-create.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../practive/product/src/app/category/category-create/category-create.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../practive/product/src/app/data/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/../practive/product/src/app/data/data.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../practive/product/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../practive/product/src/index.html" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="JpbToolWindowState">
+    <option name="myId2FirstActivated">
+      <map>
+        <entry key="com.haulmont.jpb.jpaInspector" value="true" />
+        <entry key="com.haulmont.jpb.jpaPalette" value="true" />
+        <entry key="com.haulmont.jpb.jpaStructure" value="true" />
+      </map>
+    </option>
+    <option name="myId2Visible">
+      <map>
+        <entry key="com.haulmont.jpb.jpaInspector" value="true" />
+        <entry key="com.haulmont.jpb.jpaPalette" value="false" />
+        <entry key="com.haulmont.jpb.jpaStructure" value="true" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectId" id="2GygbTxfwCCVfvEoGEITxU9F91v" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../spring_new" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\codegym\C0522G1_PhamDat_Module05\ss09_back_end\spring_new\src\main\java\spring_new_management" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="SpringNewApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="spring_new" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="spring_new_management.SpringNewApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2781c367-e27a-47e9-a1b1-cf618780c457" name="Changes" comment="" />
+      <created>1667366313346</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1667366313346</updated>
+      <workItem from="1667366314771" duration="299000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

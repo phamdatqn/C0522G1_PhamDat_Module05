@@ -52,7 +52,14 @@ export class FacilityComponent implements OnInit {
 
   deleteFacility(): void {
     this.facilityService.deleteFacility(this.facilityIdDelete).subscribe();
-    alert('Xóa dịch vụ:  [' + this.facilityImageDelete + ']  thành công!');
+    // @ts-ignore
+    Swal.fire({
+      position: 'top-mid',
+      icon: 'success',
+      title: 'Đã xóa thành công !',
+      showConfirmButton: false,
+      timer: 1500
+    });
     this.curPage = 1;
     this.getAllPage(0, 3);
   }

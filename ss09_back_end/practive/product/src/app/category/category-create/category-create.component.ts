@@ -24,7 +24,13 @@ export class CategoryCreateComponent implements OnInit {
   saveCreate() {
     const product = this.categoryForm.value;
     this.categoryService.saveCreate(product).subscribe();
-    alert('Thêm mới thành công !');
+    // @ts-ignore
+    Swal.fire({
+      icon: 'success',
+      title: 'Thêm mới thành công !',
+      showConfirmButton: false,
+      timer: 1500
+    });
     this.router.navigateByUrl('/category/list');
   }
 }

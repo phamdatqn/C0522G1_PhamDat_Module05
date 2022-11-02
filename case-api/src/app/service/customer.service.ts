@@ -11,8 +11,8 @@ export class CustomerService  {
   private API_CUSTOMER_URL = 'http://localhost:3000/customerList';
   constructor(private httpClient: HttpClient) {
   }
-  getAll(): Observable<Customer[]> {
-    return this.httpClient.get<Customer[]>(this.API_CUSTOMER_URL);
+  getAll(search: string): Observable<Customer[]> {
+    return this.httpClient.get<Customer[]>(this.API_CUSTOMER_URL  + '?name_like=' + search);
   }
 
   findById(id: number): Observable<Customer> {

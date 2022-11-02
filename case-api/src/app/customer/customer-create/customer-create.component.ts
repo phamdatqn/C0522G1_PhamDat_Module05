@@ -44,7 +44,14 @@ export class CustomerCreateComponent implements OnInit {
     console.log(this.createCustomerFormGroup.value);
     const product = this.createCustomerFormGroup.value;
     this.customerService.saveCreate(product).subscribe();
-    alert('Thêm mới thành công !');
+    // @ts-ignore
+    Swal.fire({
+      position: 'top-mid',
+      icon: 'success',
+      title: 'Thêm mới thành công !',
+      showConfirmButton: false,
+      timer: 1500
+    });
     this.router.navigateByUrl('/customer/list');
   }
 }

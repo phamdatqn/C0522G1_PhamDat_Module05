@@ -1,0 +1,77 @@
+<div class="container">
+  <div class="row">
+    <h1 style="text-align: center">DANH SÁCH SỔ TIẾT KIỆM</h1>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-1">
+    </div>
+    <div class="col-lg-5">
+      <form class="d-flex align-items-center m-0" [formGroup]="searchFormGroup">
+        <input class="form-control me-2" formControlName="maSo" placeholder="Nhập mã sổ :"
+               aria-label="Search"
+               name="idSearch">
+        <button class="btn btn-outline-success chu_menu" (click)="timMaSo()" style="color: black">Search</button>
+      </form>
+    </div>
+    <div class="col-lg-5">
+      <form class="d-flex align-items-center m-0" [formGroup]="searchFormGroup">
+        <input class="form-control me-2" formControlName="name" placeholder="Nhập tên khách :"
+               aria-label="Search">
+        <button class="btn btn-outline-success chu_menu" (click)="timTen()" style="color: black">Search</button>
+      </form>
+    </div>
+    <div class="col-lg-1">
+    </div>
+  </div>
+  <div class="row" style="height: 20px"></div>
+  <div class="row">
+    <a routerLink="/sotietkiem/create">
+      <button class="btn btn-primary">+ Thêm mới</button>
+    </a>
+  </div>
+  <table class="table table-striped" border="1">
+    <tr bgcolor="">
+      <th>Mã sổ</th>
+      <th>Mã khách hàng</th>
+      <th>Tên khách hàng</th>
+      <th>Ngày mở sổ</th>
+      <th>Thời gian bắt đầu gửi</th>
+      <th>Kỳ hạn</th>
+      <th>Số tiền gửi</th>
+      <th>Lãi suất</th>
+      <th>Ưu đãi</th>
+      <th>Sửa</th>
+      <th>Xóa</th>
+    </tr>
+    <tr *ngFor="let sotietkiem of sotietkiemList">
+
+      <td>{{sotietkiem.id}}</td>
+      <td>{{sotietkiem.maKhachHang}}</td>
+      <td>{{sotietkiem.name}}</td>
+      <td>{{sotietkiem.ngayMoSo}}</td>
+      <td>{{sotietkiem.thoiGianKyGui}}</td>
+      <td>{{sotietkiem.kyHan}}</td>
+      <td>{{sotietkiem.soTien}}</td>
+      <td>{{sotietkiem.laiXuat}}%</td>
+      <td>{{sotietkiem.uuDai}}</td>
+
+      <td>
+        <a routerLink="/sotietkiem/update/{{sotietkiem.id}}">
+          <button class="btn btn-secondary btn-outline-info " style="color: white">
+          <span
+            class=" bi-pencil-square"></span>
+          </button>
+        </a>
+      </td>
+      <td>
+        <button class="btn btn-secondary  btn-outline-warning text-light"
+                data-bs-toggle="modal" data-bs-target="#deleteCustomer"
+                (click)="getInfoSotietkiemDelete(sotietkiem.id, sotietkiem.name)"><span style="color: red"
+                                                                                        class='bi bi-trash'></span>
+        </button>
+      </td>
+    </tr>
+  </table>
+
+</div>

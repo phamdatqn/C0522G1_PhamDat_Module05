@@ -15,17 +15,18 @@
       </a>
     </div>
     <div class="col-lg-4">
-      <form class="d-flex align-items-center m-0 ">
-        <input class="form-control me-2" type="search" placeholder="Nhập tên khách hàng :" aria-label="Search"
+      <form class="d-flex align-items-center m-0" [formGroup]="searchFormGroup">
+        <input class="form-control me-2" formControlName="searchName" placeholder="Nhập tên khách hàng :"
+               aria-label="Search"
                name="search">
-        <button class="btn btn-outline-success chu_menu" type="submit" style="color: black">Search</button>
+        <button class="btn btn-outline-success chu_menu" (click)="searchByName()" style="color: black">Search</button>
       </form>
     </div>
     <div class="col-lg-4"></div>
   </div>
   <div class="row" style="height: 10px;background: white"></div>
 
-  <div  class="row">
+  <div class="row">
     <table id="tableCustomer" class="table table-striped" style="margin-top: 10px">
       <thead>
       <tr bgcolor="#36AD74" style="color: white">
@@ -42,10 +43,11 @@
       </thead>
       <tbody>
       <tr *ngFor="let customer of customerList;index as i">
-        <td>{{i + 1 + (curPage-1)*3}}</td>
+        <td>{{i + 1 + (curPage - 1) * 3}}</td>
         <td>{{customer.name}}</td>
         <td>{{customer.dateOfBirth}}</td>
-        <td>{{customer.gender}}</td>
+        <td *ngIf="customer.gender">Nam</td>
+        <td *ngIf="!customer.gender">Nữ</td>
         <td>{{customer.idCard}}</td>
         <td>{{customer.address}}</td>
         <td>{{customer.customerType}}</td>
@@ -59,7 +61,8 @@
         <td>
           <button class="btn btn-danger btn-outline-secondary text-light"
                   data-bs-toggle="modal" data-bs-target="#deleteCustomer"
-                  (click)="getInfoCustomerDelete(customer.id, customer.name)">  <span style="color: white" class='bi bi-trash'></span>
+                  (click)="getInfoCustomerDelete(customer.id, customer.name)"><span style="color: white"
+                                                                                    class='bi bi-trash'></span>
           </button>
         </td>
       </tr>
@@ -72,11 +75,12 @@
 <div class="modal fade" id="deleteCustomer" tabindex="-1" aria-labelledby="exampleModalLabel1"
      aria-hidden="true">
   <div class="modal-dialog">
-    <div class="modal-content modalCSS" >
+    <div class="modal-content modalCSS">
 
       <div class="modal-body" style="text-align: center">
         <h3 class="modal-title" id="exampleModalLabel1" style="text-align: center">Bạn có chắc chắn muốn xóa?</h3>
-        <span class="h6">Tên khách hàng:</span><strong class="text-danger ps-2">{{customerNameDelete | uppercase}}</strong>
+        <span class="h6">Tên khách hàng:</span><strong
+        class="text-danger ps-2">{{customerNameDelete | uppercase}}</strong>
       </div>
 
       <div class="modal-footer">

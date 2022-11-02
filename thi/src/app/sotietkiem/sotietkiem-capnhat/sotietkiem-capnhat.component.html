@@ -1,0 +1,53 @@
+<div class="row">
+  <table class="table table-striped" border="1" [formGroup]="updateSotietkiemFormGroup"
+         style="margin-left:20%;width: 60%">
+    <input hidden class="form-control" formControlName="id" id="id">
+    <tr bgcolor="#36AD74">
+      <th colspan="2"
+          style="color: white;text-align: center;font-size: 35px;margin-top: 20px;font-family: Times New Roman,fantasy">
+        CẬP NHẬT SỔ TIẾT KIỆM
+      </th>
+    </tr>
+    <tr>
+      <td>Mã sổ tiết kiệm:</td>
+      <td><input class="form-control" formControlName="id"></td>
+    </tr>
+    <tr>
+      <td>Mã khách hàng:</td>
+      <td><input class="form-control" formControlName="maKhachHang"></td>
+    </tr>
+    <tr>
+      <td>Ngày mở sổ:</td>
+      <td><input class="form-control" formControlName="ngayMoSo"></td>
+    </tr>
+    <tr>
+      <td>Thời gian ký gửi:</td>
+      <td><input class="form-control" formControlName="thoiGianKyGui"></td>
+    </tr>
+    <tr>
+      <td>Kỳ hạn:</td>
+      <td><input class="form-control" formControlName="kyHan"></td>
+    </tr>
+    <tr>
+      <td>Số tiền</td>
+      <td><input class="form-control" formControlName="soTien"></td>
+    </tr>
+    <tr>
+      <td>Lãi suất</td>
+      <td><input class="form-control" formControlName="laiXuat"></td>
+    </tr>
+    <tr>
+      <td>Ưu đãi</td>
+      <td><input class="form-control" formControlName="uuDai"></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <button class="btn btn-primary btn-outline-primary " type="submit" value="Create"
+                (click)="saveUpdate()"
+                [disabled]="updateSotietkiemFormGroup.invalid">Cập nhật
+        </button>
+      </td>
+    </tr>
+  </table>
+</div>

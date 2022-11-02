@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {CustomerService} from '../../service/customer.service';
 import {Title} from '@angular/platform-browser';
 import {Customer} from '../../model/customer';
+import {FormControl, FormGroup} from '@angular/forms';
 
 @Component({
   selector: 'app-customer-list',
@@ -9,14 +10,17 @@ import {Customer} from '../../model/customer';
   styleUrls: ['./customer-list.component.css']
 })
 export class CustomerListComponent implements OnInit {
+  searchFormGroup: FormGroup = new FormGroup({
+    searchName: new FormControl('')
+  });
   customerList: Customer[];
   curPage = 1;
   totalPage: number;
   customerNameDelete: string;
   customerIdDelete: number;
 
-  getAllPage(n1, n2) {
-    this.customerService.getAll().subscribe(value => {
+  getAllPage(search, n1, n2) {
+    this.customerService.getAll(search).subscribe(value => {
       this.totalPage = Math.ceil(value.length / 3);
       this.customerList = value.slice(n1, n2);
     });
@@ -28,19 +32,19 @@ export class CustomerListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getAllPage(0, 3);
+    this.getAllPage('', 0, 3);
   }
 
   next(): void {
     this.curPage++;
-    this.getAllPage((this.curPage - 1) * 3, this.curPage * 3);
+    this.getAllPage('', (this.curPage - 1) * 3, this.curPage * 3);
 
     this.customerList = this.customerList.slice((this.curPage - 1) * 3, this.curPage * 3);
   }
 
   previous(): void {
     this.curPage--;
-    this.getAllPage((this.curPage - 1) * 3, this.curPage * 3);
+    this.getAllPage('', (this.curPage - 1) * 3, this.curPage * 3);
   }
 
   getInfoCustomerDelete(id: number, name: string): void {
@@ -50,8 +54,29 @@ export class CustomerListComponent implements OnInit {
 
   deleteCustomer(): void {
     this.customerService.deleteCustomer(this.customerIdDelete).subscribe();
-    alert('Xóa khách hàng:  [' + this.customerNameDelete + ']  thành công!');
+    // @ts-ignore
+    Swal.fire({
+      position: 'top-mid',
+      icon: 'success',
+      title: 'Đã xóa thành công !',
+      showConfirmButton: false,
+      timer: 1500
+    });
     this.curPage = 1;
-    this.getAllPage(0, 3);
+    this.getAllPage('', 0, 3);
+  }
+
+  searchByName() {
+    const search = this.searchFormGroup.value.searchName;
+    // @ts-ignore
+    Swal.fire({
+      position: 'top-mid',
+      icon: 'info',
+      title: 'Vui lòng đợi, đang load dữ liệu !',
+      showConfirmButton: false,
+      timer: 1500
+    });
+    this.curPage = 1;
+    this.getAllPage(search, 0, 3);
   }
 }

@@ -1,0 +1,74 @@
+{
+  "danhSachSo": [
+    {
+      "id": 1,
+      "ngayMoSo": "2020-12-12",
+      "thoiGianKyGui": "2020-12-12",
+      "kyHan": "6 tháng",
+      "soTien": 10000000,
+      "laiXuat": "3%",
+      "uuDai": "không",
+      "maKhachHang": {
+        "id": 1,
+        "name": "Phạm Đạt"
+      }
+    },
+    {
+      "id": 2,
+      "ngayMoSo": "2020-12-12",
+      "thoiGianKyGui": "2020-12-12",
+      "kyHan": "6 tháng",
+      "soTien": 10000000,
+      "laiXuat": "3%",
+      "uuDai": "không",
+      "maKhachHang": {
+        "id": 2,
+        "name": "Đạt Phạm"
+      }
+    },
+    {
+      "id": 3,
+      "ngayMoSo": "2020-12-12",
+      "thoiGianKyGui": "2020-12-12",
+      "kyHan": "6 tháng",
+      "soTien": 10000000,
+      "laiXuat": "3%",
+      "uuDai": "không",
+      "maKhachHang": {
+        "id": 3,
+        "name": "Văn C06"
+      }
+    },
+    {
+      "id": 4,
+      "ngayMoSo": "2020-12-12",
+      "thoiGianKyGui": "2020-12-12",
+      "kyHan": "6 tháng",
+      "soTien": 10000000,
+      "laiXuat": "3%",
+      "uuDai": "không",
+      "maKhachHang": {
+        "id": 4,
+        "name": "Đến C06"
+      }
+    }
+  ],
+  "DanhsachKH": [
+    {
+      "id": 1,
+      "name": "Phạm Đạt"
+    },
+    {
+      "id": 2,
+      "name": "Đạt Phạm"
+    },
+    {
+      "id": 3,
+      "name": "Văn C06"
+    },
+    {
+      "id": 4,
+      "name": "Đến C06"
+    }
+  ]
+}

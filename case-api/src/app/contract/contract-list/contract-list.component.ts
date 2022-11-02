@@ -2,7 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import {Title} from '@angular/platform-browser';
 import {ContractService} from '../../service/contract.service';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {Customer} from '../../model/customer';
 import {Contract} from '../../model/contract';
 
 @Component({
@@ -21,7 +20,7 @@ export class ContractListComponent implements OnInit {
   facilityTypeList: string[] = ['Villa VIP', 'House Vip', 'Room Vip', 'Villa House', 'Villa Room'];
   createContractFormGroup: FormGroup = new FormGroup(
     {
-      id: new FormControl('', Validators.required),
+      // id: new FormControl('', Validators.required),
       startDate: new FormControl('', Validators.required),
       endDate: new FormControl('', Validators.required),
       deposit: new FormControl('', Validators.pattern('^[1-9]\\d*$')),
@@ -67,8 +66,27 @@ export class ContractListComponent implements OnInit {
 
   deleteContract(): void {
     this.contractService.deleteContract(this.customerIdDelete).subscribe();
-    alert('Xóa khách hàng:  [' + this.customerIdDelete + ']  thành công!');
+    // @ts-ignore
+    Swal.fire({
+      position: 'top-mid',
+      icon: 'success',
+      title: 'Đã xóa thành công !',
+      showConfirmButton: false,
+      timer: 1500
+    });
     this.curPage = 1;
     this.getAllPage(0, 3);
+  }
+
+  saveCreate() {
+    this.contractService.saveCreate(this.createContractFormGroup.value).subscribe();
+    // @ts-ignore
+    Swal.fire({
+      position: 'top-mid',
+      icon: 'success',
+      title: 'Thêm mới thành công !',
+      showConfirmButton: false,
+      timer: 1500
+    });
   }
 }

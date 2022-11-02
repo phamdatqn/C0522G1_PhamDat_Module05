@@ -1,0 +1,61 @@
+<h1>Danh Sách SỐ Tiết Kiệm</h1>
+
+<div class="col-lg-4">
+  <form class="d-flex align-items-center m-0" [formGroup]="searchFormGroup">
+    <input class="form-control me-2" formControlName="maSo" placeholder="Nhập mã sổ :"
+           aria-label="Search"
+           name="search">
+    <button class="btn btn-outline-success chu_menu" (click)="timMaSo()" style="color: black">Search</button>
+  </form>
+</div>
+
+<table class="table table-striped" border="1">
+  <tr>
+    <th>Mã sổ</th>
+    <th>Mã khách hàng</th>
+    <th>Tên khách hàng</th>
+    <th>Ngày mở sổ</th>
+    <th>Thời gian bắt đầu gửi</th>
+    <th>Kỳ hạn</th>
+    <th>Số tiền gửi</th>
+    <th>Lãi suất</th>
+    <th>Ưu đãi</th>
+    <th>Sửa</th>
+    <th>Xóa</th>
+  </tr>
+  <tr *ngFor="let sotietkiem of sotietkiemList">
+
+    <td>{{sotietkiem.id}}</td>
+    <td>{{sotietkiem.maKhachHang.id}}</td>
+    <td >{{sotietkiem.maKhachHang.name}}</td>
+    <td>{{sotietkiem.ngayMoSo}}</td>
+    <td>{{sotietkiem.thoiGianKyGui}}</td>
+    <td>{{sotietkiem.kyHan}}</td>
+    <td>{{sotietkiem.soTien}}</td>
+    <td>{{sotietkiem.laiXuat}}</td>
+    <td>{{sotietkiem.uuDai}}</td>
+
+    <td><a routerLink="/sotietkiem/update/{{sotietkiem.id}}">Sửa</a></td>
+    <td><a routerLink="/sotietkiem/delete/{{sotietkiem.id}}">Xóa</a></td>
+  </tr>
+</table>
+<nav aria-label="..." class="justify-content-center d-flex">
+  <ul class="pagination">
+    <li class="page-item">
+      <a class="page-link" (click)="previous()" *ngIf="curPage > 1">&laquo; Trang trước</a>
+    </li>
+    <li class="page-item disabled" *ngIf="curPage <= 1">
+      <a class="page-link">&laquo;</a>
+    </li>
+
+    <li class="page-item"><a class="page-link disabled" href="" [text]="curPage + ' / ' + totalPage"></a>
+    </li>
+
+    <li class="page-item">
+      <a class="page-link" (click)="next()" *ngIf="curPage < totalPage">Trang sau &raquo;</a>
+    </li>
+    <li class="page-item disabled" *ngIf="curPage >= totalPage">
+      <a class="page-link">&raquo;</a>
+    </li>
+  </ul>
+</nav>

@@ -1,0 +1,56 @@
+{
+  "SoTietKiem": [
+    {
+      "id": 1,
+      "ngayMoSo": "2020-12-09",
+      "thoiGianKyGui": "2020-12-27",
+      "kyHan": "6 Tháng",
+      "soTien": "88888888888888",
+      "laiXuat": "7",
+      "uuDai": "không",
+      "KhachHang": {
+        "id": 1,
+        "name": "Pham Dat tttttttt"
+      }
+    },
+    {
+      "id": 2,
+      "ngayMoSo": "2020-12-12",
+      "thoiGianKyGui": "2020-12-12",
+      "kyHan": "6 Tháng",
+      "soTien": 10000000,
+      "laiXuat": 3,
+      "uuDai": "không",
+      "KhachHang": {
+        "id": 2,
+        "name": "Dat Pham"
+      }
+    }
+  ],
+  "KhachHang": [
+    {
+      "id": 1,
+      "name": "Phạm Đạt"
+    },
+    {
+      "id": 2,
+      "name": "Đạt Phạm"
+    },
+    {
+      "id": 3,
+      "name": "Văn C06"
+    },
+    {
+      "id": 4,
+      "name": "Đến C06"
+    },
+    {
+      "id": 5,
+      "name": "Nguyễn Nga Ân"
+    },
+    {
+      "id": 6,
+      "name": "Hồ Ân Nga"
+    }
+  ]
+}

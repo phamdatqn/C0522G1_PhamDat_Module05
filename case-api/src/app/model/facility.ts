@@ -5,7 +5,7 @@ export interface Facility {
   area: number;
   rentalCosts: number;
   maxPeople: number;
-  isDelete: boolean;
+  isDelete?: boolean;
   rentType: number;
   facilityType: string;
   description?: string;

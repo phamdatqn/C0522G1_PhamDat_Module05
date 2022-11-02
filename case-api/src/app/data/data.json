@@ -2,8 +2,8 @@
   "customerList": [
     {
       "id": 1,
-      "name": "Đạt Phạm",
-      "dateOfBirth": "2020-12-12",
+      "name": "Nguyễn Thất Hứa",
+      "dateOfBirth": "2000-12-12",
       "gender": true,
       "idCard": "123456789",
       "phoneNumber": "097111111",
@@ -13,18 +13,18 @@
     },
     {
       "id": 2,
-      "name": "Đạt Phạm",
+      "name": "Nguyễn Thất Bại",
       "dateOfBirth": "2000-12-12",
-      "gender": true,
+      "gender": false,
       "idCard": "123456789",
       "phoneNumber": "097111111",
       "email": "phamdat.qn@gmail.com",
-      "address": "Đà Nẵng a",
+      "address": "Đà Nẵng a b",
       "customerType": "Gold"
     },
     {
       "id": 3,
-      "name": "Đạt Phạm",
+      "name": "Choi Xong Dong",
       "dateOfBirth": "2000-12-12",
       "gender": true,
       "idCard": "123456789",
@@ -35,8 +35,8 @@
     },
     {
       "id": 4,
-      "name": "Đạt Phạm",
-      "dateOfBirth": "2020-12-12",
+      "name": "Nguyễn Thất Hứa",
+      "dateOfBirth": "2000-12-12",
       "gender": true,
       "idCard": "123456789",
       "phoneNumber": "097111111",
@@ -57,8 +57,8 @@
     },
     {
       "id": 6,
-      "name": "Đạt Phạm",
-      "dateOfBirth": "2020-12-12",
+      "name": "Choi Xong Tron",
+      "dateOfBirth": "2000-12-12",
       "gender": true,
       "idCard": "123456789",
       "phoneNumber": "097111111",
@@ -76,6 +76,28 @@
       "address": "vung tau",
       "customerType": "Platinum",
       "id": 7
+    },
+    {
+      "name": "Phạm Đạt",
+      "dateOfBirth": "2000-10-14",
+      "gender": "true",
+      "idCard": "1111",
+      "phoneNumber": "0977777777",
+      "email": "phamdat.qn2@gmail.com",
+      "address": "Vũng Tàu",
+      "customerType": "Platinum",
+      "id": 8
+    },
+    {
+      "name": "Mất Cái Quần",
+      "dateOfBirth": "2000-10-08",
+      "gender": "false",
+      "idCard": "1111",
+      "phoneNumber": "0977777777",
+      "email": "phamdat.qn2@gmail.com",
+      "address": "gt",
+      "customerType": "Diamond",
+      "id": 10
     }
   ],
   "facilityList": [
@@ -85,15 +107,15 @@
       "img": "https://furamavietnam.com/wp-content/uploads/2018/03/Vietnam_Danang_Furama_Ocean-Suite-Feature-370x239.jpg",
       "area": 1000,
       "rentalCosts": 1000000,
-      "maxPeople": 10,
+      "maxPeople": "105",
       "isDelete": false,
-      "rentType": 1,
+      "rentType": "Năm",
       "facilityType": "Villa",
       "description": "Có hồ bơi",
       "standardRoom": "Vip",
       "floor": 5,
       "areaPool": 200,
-      "free": ""
+      "free": "okkkk"
     },
     {
       "id": 2,
@@ -101,7 +123,7 @@
       "img": "https://furamavietnam.com/wp-content/uploads/2018/03/Vietnam_Danang_Furama_Ocean-Studio-Suite-F-370x239.jpg",
       "area": 1000,
       "rentalCosts": 1000000,
-      "maxPeople": 10,
+      "maxPeople": "102",
       "isDelete": false,
       "rentType": 2,
       "facilityType": "House",
@@ -125,7 +147,7 @@
       "standardRoom": "Vip",
       "floor": 5,
       "areaPool": 200,
-      "free": ""
+      "free": "453543"
     },
     {
       "id": 4,
@@ -206,6 +228,38 @@
       "floor": 5,
       "areaPool": 200,
       "free": ""
+    },
+    {
+      "img": "4f2rff",
+      "name": "rtwt t",
+      "area": "4324",
+      "rentalCosts": "3242",
+      "maxPeople": "43243",
+      "rentType": "Ngày",
+      "facilityType": "House",
+      "description": "342",
+      "standardRoom": "342432",
+      "floor": "234",
+      "areaPool": "234",
+      "free": "234",
+      "isDelete": false,
+      "id": 9
+    },
+    {
+      "img": "https://noithatnhadepviet.vn/upload/elfinder/h%C3%ACnh%20thi%E1%BA%BFt%20k%E1%BA%BF/hinh%20support%203/4-dora.jpg",
+      "name": "Villa Doremon",
+      "area": "1000",
+      "rentalCosts": "1000000",
+      "maxPeople": "12",
+      "rentType": "Tháng",
+      "facilityType": "Villa",
+      "description": "Không",
+      "standardRoom": "VIP",
+      "floor": "12",
+      "areaPool": "500",
+      "free": "Cafe sáng",
+      "isDelete": false,
+      "id": 12
     }
   ],
   "contractList": [
@@ -292,6 +346,83 @@
       "customerId": 2,
       "facilityId": 1,
       "contractDetailsId": 1
+    },
+    {
+      "startDate": "2022-09-30",
+      "endDate": "2022-10-07",
+      "deposit": "2342",
+      "totalMoney": "34324",
+      "employeeId": "NV Đạt Phạm",
+      "customerId": "Đạt Phạm",
+      "facilityId": "House Vip",
+      "contractDetailsId": "1",
+      "id": 8
+    },
+    {
+      "startDate": "2022-10-22",
+      "endDate": "2022-10-07",
+      "deposit": "2343",
+      "totalMoney": "34324",
+      "employeeId": "NV Đạt Phạm",
+      "customerId": "Đạt Phạm",
+      "facilityId": "House Vip",
+      "contractDetailsId": "11",
+      "id": 9
+    },
+    {
+      "startDate": "2022-10-07",
+      "endDate": "2022-10-07",
+      "deposit": "423434",
+      "totalMoney": "ưewqe",
+      "employeeId": "NV Đẹt Phạm",
+      "customerId": "Phạm Đạt",
+      "facilityId": "House Vip",
+      "contractDetailsId": "2",
+      "id": 10
+    },
+    {
+      "startDate": "2022-10-08",
+      "endDate": "2022-10-07",
+      "deposit": "4545",
+      "totalMoney": "34224",
+      "employeeId": "NV Đạt Phạm",
+      "customerId": "Đạt Phạm",
+      "facilityId": "Villa VIP",
+      "contractDetailsId": "4234",
+      "id": 11
+    },
+    {
+      "startDate": "2022-10-13",
+      "endDate": "2022-10-07",
+      "deposit": "4322",
+      "totalMoney": "4343",
+      "employeeId": "NV Phạm Đạt",
+      "customerId": "Phạm Đạt",
+      "facilityId": "Villa VIP",
+      "contractDetailsId": "34234",
+      "id": 12
+    },
+    {
+      "startDate": "2022-10-13",
+      "endDate": "2022-10-07",
+      "deposit": "453",
+      "totalMoney": "534534",
+      "employeeId": "NV Phạm Đạt",
+      "customerId": "Đạt Phạm",
+      "facilityId": "House Vip",
+      "contractDetailsId": "4535",
+      "id": 13
+    },
+    {
+      "startDate": "2022-10-13",
+      "endDate": "2022-10-29",
+      "deposit": "4234234",
+      "totalMoney": "4234",
+      "employeeId": "NV Đẹt Phạm",
+      "customerId": "Phạm Đạt",
+      "facilityId": "Room Vip",
+      "contractDetailsId": "111",
+      "id": 14
     }
   ]
 }

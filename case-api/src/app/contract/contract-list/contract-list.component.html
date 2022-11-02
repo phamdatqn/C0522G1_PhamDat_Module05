@@ -10,9 +10,9 @@
 
   <div class="row">
     <div class="col-lg-4">
-      <button class="btn btn-primary" data-bs-toggle="modal"
-              data-bs-target="#addContractModal">+ Thêm mới
-      </button>
+<!--      <button class="btn btn-primary" data-bs-toggle="modal"-->
+<!--              data-bs-target="#addContractModal">+ Thêm mới-->
+<!--      </button>-->
 
     </div>
     <div class="col-lg-4">
@@ -172,6 +172,7 @@
               <td>KHÁCH HÀNG:</td>
               <td>
                 <select id="customerId" class="form-select" formControlName="customerId">
+                  <option value="" disabled class="form-control">Vui lòng chọn</option>
                   <option [ngValue]="item" *ngFor="let item of customerList" name="customerId">{{item}}</option>
                 </select>
               </td>
@@ -191,6 +192,7 @@
               <td>NHÂN VIÊN:</td>
               <td>
                 <select id="employeeId" class="form-select" formControlName="employeeId">
+                  <option value="" disabled class="form-control">Vui lòng chọn</option>
                   <option [ngValue]="item" *ngFor="let item of employeeList" name="employeeId">{{item}}</option>
                 </select>
               </td>
@@ -206,11 +208,11 @@
               </td>
             </tr>
 
-
             <tr>
               <td>DỊCH VỤ:</td>
               <td>
                 <select id="facilityId" class="form-select" formControlName="facilityId">
+                  <option value="" disabled class="form-control">Vui lòng chọn</option>
                   <option *ngFor="let item of facilityTypeList" name="facilityId" [ngValue]="item" >{{item}}</option>
                 </select>
               </td>
@@ -225,12 +227,16 @@
                 </div>
               </td>
             </tr>
-
+            <tr>
+              <td>MÃ HỢP ĐỒNG CHI TIẾT:</td>
+              <td><input class="form-control" type="text" formControlName="contractDetailsId"></td>
+            </tr>
           </table>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
-            <button class="btn btn-primary btn-outline-primary " type="submit" value="Create"
-                    [disabled]="createContractFormGroup.invalid">Thêm mới
+            <button style="color: white" class="btn btn-primary" type="submit" value="Create"
+                    (click)="saveCreate()"
+                    [disabled]="createContractFormGroup.invalid" data-bs-dismiss="modal">Thêm mới
             </button>
           </div>
         </div>

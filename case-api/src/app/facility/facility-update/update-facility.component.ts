@@ -13,6 +13,7 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 export class UpdateFacilityComponent implements OnInit {
   facility: Facility;
   updateFacilityFormGroup: FormGroup = new FormGroup({
+    id: new FormControl(''),
     img: new FormControl('', Validators.required),
     name: new FormControl('', [Validators.required, Validators.pattern('^[a-zA-Z ]+$')]),
     area: new FormControl('', [Validators.required, Validators.pattern('^[1-9]\\d*$')]),
@@ -48,8 +49,17 @@ export class UpdateFacilityComponent implements OnInit {
     console.log(this.updateFacilityFormGroup.value);
     const facility: Facility = this.updateFacilityFormGroup.value;
     this.facilityService.saveUpdate(facility).subscribe();
+    // @ts-ignore
+    Swal.fire({
+      position: 'top-mid',
+      icon: 'success',
+      title: 'Cập nhật thành công !',
+      showConfirmButton: false,
+      timer: 1500
+    });
     this.router.navigateByUrl('/facility/list');
   }
+
   compareWithId(item1, item2) {
     return item1 && item2 && item1.id === item2.id;
   }
